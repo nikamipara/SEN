@@ -19,7 +19,7 @@
 				$floor=$_POST['floor'];
 				$room=$_POST['room'];
 				$contact=$_POST['contact'];
-				$gender=$_POST['genders'];
+				$gender=$_POST['gender'];
 				$batch=$_POST['batch'];
 				$gcontact=$_POST['gcontact'];
 				$program=$_POST['program'];
@@ -41,41 +41,14 @@
 </HEAD>
 
 <BODY>
-	<FORM NAME="form1" METHOD="POST" ACTION="register_resident.php" >
+	<FORM NAME="form1" METHOD="POST" ACTION="register.php" >
 	
-		ID   : <INPUT TYPE="TEXT" NAME="id"> 
+		ID : <INPUT TYPE="TEXT" NAME="id"> 
 		<br>
 		Name : <INPUT TYPE="TEXT"  NAME="name">
 		<br>
-		Wing : <select name="wing">
-			<option value="a">A</option>
-			<option value="b">B</option>
-			<option value="c">C</option>
-			<option value="d">D</option>
-			<option value="e">E</option>
-			<option value="f">F</option>
-			<option value="g">G</option>
-			<option value="h">H</option>
-			<option value="j">J</option>
-			<option value="k">K</option>
-			</select>
-		<br>
-		Floor : <INPUT TYPE="TEXT"  NAME="floor">
-		<br>
-		Room Number: <INPUT TYPE="NUMBER"  NAME="room">
-		<br>
-		Contact Details : <INPUT TYPE="NUMBER"  NAME="contact">
-		<br>
-		Gender:  
-		<input type="radio" NAME="genders" value="m">Male           
-		<input type="radio" NAME="genders" value="f">Female
-		<br>
-		Batch : <INPUT TYPE="NUMBER"  NAME="batch">
-		<br>
-		Program : <INPUT TYPE="TEXT"  NAME="program">
-		<br>
-		Guardian Contact details : <INPUT TYPE="NUMBER"  NAME="gcontact">
-		<br>
+		Wing : <INPUT TYPE="TEXT"  NAME="wing">
+		
 		
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="REGISTER">
 		<br>
@@ -117,7 +90,7 @@
 			{
 				echo "Invalid Wing ";
 			}
-			else if(($gender=="m")&&($wing!="a"&&$wing!="b"&&$wing!="c"&&$wing!="d"&&$wing!="e"&&$wing!="f"&&$wing!="g"&&$wing!="h"))
+			else if(($gender=="m")&&($wing!="a"&&wing!="b"&&wing!="c"&&wing!="d"&&wing!="e"&&wing!="f"&&wing!="g"&&wing!="h"))
 			{
 				echo "Invalid Wing ";
 			}
