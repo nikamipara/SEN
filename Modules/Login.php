@@ -82,9 +82,14 @@
 						echo nl2br("\n");
 						session_start();
 						$_SESSION['access']=$out['priority'];
+						$_SESSION['login_id']=$out['login_id'];
 						if($out['priority']==4)
 						{
 							header('location:/sen/Modules/Links_temp/admin_links.php');
+						}
+						if($out['priority']==1)
+						{
+							header('location:/sen/Modules/Links_temp/resident_links.php');
 						}
 					}
 					else 

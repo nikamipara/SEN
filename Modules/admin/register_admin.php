@@ -15,18 +15,22 @@
 			
 				$id=$_POST['id'];
 				$name=$_POST['name'];
-				$wing=$_POST['wing'];
-				$floor=$_POST['floor'];
-				$room=$_POST['room'];
 				$contact=$_POST['contact'];
-				$gender=$_POST['gender'];
-				$batch=$_POST['batch'];
-				$gcontact=$_POST['gcontact'];
-				$program=$_POST['program'];
-				$db_handle=Connect_To_Server();
-				$db_found=Connect_To_DB();
-				register($id,$name,$wing,$floor,$room,$contact,$gender,$batch,$gcontact,$program);
-				Close_To_Server($db_handle);
+				$password=$_POST['password'];
+				$repassword=$_POST['repassword'];
+				
+				
+				if($password!=$repassword)
+				{
+					print "The passwords do not match";
+				}
+				else
+				{
+					$db_handle=Connect_To_Server();
+					$db_found=Connect_To_DB();
+					register_admin($id,$name,$contact,$password);
+					Close_To_Server($db_handle);
+				}
 			}
 		}
 		else 
@@ -41,15 +45,18 @@
 </HEAD>
 
 <BODY>
-	<FORM NAME="form1" METHOD="POST" ACTION="register.php" >
+	<FORM NAME="form2" METHOD="POST" ACTION="register_admin.php" >
 	
 		ID : <INPUT TYPE="TEXT" NAME="id"> 
 		<br>
 		Name : <INPUT TYPE="TEXT"  NAME="name">
 		<br>
-		Wing : <INPUT TYPE="TEXT"  NAME="wing">
-		
-		
+		Contact Number : <INPUT TYPE="TEXT"  NAME="contact">
+		<br>
+		Password : <INPUT TYPE="password"  NAME="password">
+		<br>
+		Re-type Password :<INPUT TYPE="password"  NAME="repassword">
+		<br>
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="REGISTER">
 		<br>
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Go Back">
@@ -84,25 +91,11 @@
 		{
 			mysql_close($db_handle);
 		}
-		function register($id,$name,$wing,$floor,$room,$contact,$gender,$batch,$gcontact,$program)
+		function register_admin($id,$name,$contact,$password)
 		{
-			if(($gender=="f")&&($wing!="j"&&wing!="k"))
-			{
-				echo "Invalid Wing ";
-			}
-			else if(($gender=="m")&&($wing!="a"&&wing!="b"&&wing!="c"&&wing!="d"&&wing!="e"&&wing!="f"&&wing!="g"&&wing!="h"))
-			{
-				echo "Invalid Wing ";
-			}
-			else if($gender!=="m"&&$gender!="f")
-			{
-				echo "invalid Gender";
-			}
-			else
-			{
 				
-				$password="reset123";
-				$access="1";
+				
+				$access="4";
 				$SQL_Query="INSERT INTO login VALUES ('$id','$password','$access')";
 				$result=mysql_query($SQL_Query);
 				if($result==false)
@@ -111,8 +104,7 @@
 				}
 				else
 				{
-					$email=$id."@daiict.ac.in";
-					$SQL_Query="INSERT INTO residents(id,name,room,floor,wing,contact_details,guardian_contact_details,batch,program,email,login_id) VALUES ('$id','$name','$room','$floor','$wing','$contact','$gcontact','$batch','$program','$email','$id')";
+					$SQL_Query="INSERT INTO admin(id,name,contact,login_id) VALUES ('$id','$name','$contact','$id')";
 					$result=mysql_query($SQL_Query);
 					if($result==false)
 					{
@@ -124,10 +116,9 @@
 					}
 					else
 					{
-						
 						echo "Register Successfully";
 					}
 				}
-			}
+			
 		}
 ?>

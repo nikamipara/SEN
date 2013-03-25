@@ -3,18 +3,17 @@
 <title>Menu Bar Include</title>
 <?PHP 	
 		session_start();
-		if(isset($_SESSION['access'])&&($_SESSION['access']=='4'))
+		if(isset($_SESSION['access'])&&($_SESSION['access']=='1'))
 		{
 				if(isset($_POST['SUBMIT1']))
 				{
-						header('location:/sen/Modules/admin/register_resident.php');
+						header('location:/sen/Modules/resident/ETIC.php');
 			
 				}
 				if(isset($_POST['SUBMIT2']))
 				{
 						
-						$_SESSION['access']=4;
-						header('location:/sen/Modules/admin/register_admin.php');
+						header('location:/sen/Modules/admin/Change Password.php');
 			
 				}
 				if(isset($_POST['SUBMIT3']))
@@ -40,11 +39,11 @@
 </head>
 
 <body bgcolor="#FFFFFF" text="#000000">
-				<FORM NAME="form2" METHOD="POST" ACTION="admin_links.php" >
+				<FORM NAME="form2" METHOD="POST" ACTION="resident_links.php" >
 			
-				<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="Register New Residents">
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="Register For ETIC">
 				<br>
-				<INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Register New Admin">
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Change Password">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT3" VALUE="Sign out">
 				<br>
