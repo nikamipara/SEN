@@ -13,7 +13,7 @@
 				if(isset($_POST['SUBMIT2']))
 				{
 						
-						header('location:/sen/Modules/admin/Change Password.php');
+						header('location:/sen/Modules/resident/Change_Password.php');
 			
 				}
 				if(isset($_POST['SUBMIT3']))

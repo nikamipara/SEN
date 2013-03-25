@@ -13,11 +13,15 @@
 				if(isset($_POST['SUBMIT2']))
 				{
 						
-						$_SESSION['access']=4;
 						header('location:/sen/Modules/admin/register_admin.php');
 			
 				}
 				if(isset($_POST['SUBMIT3']))
+				{
+						header('location:/sen/Modules/admin/change_password.php');
+			
+				}
+				if(isset($_POST['SUBMIT4']))
 				{
 						
 						$_SESSION['access']=0;
@@ -46,7 +50,9 @@
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Register New Admin">
 				<br>
-				<INPUT TYPE="SUBMIT" NAME="SUBMIT3" VALUE="Sign out">
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT3" VALUE="Change Password">
+				<br>
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT4" VALUE="Sign out">
 				<br>
 			</FORM>
 </body>
