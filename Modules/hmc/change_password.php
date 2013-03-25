@@ -1,13 +1,13 @@
 <HTML>
 <HEAD>
-<TITLE>Change password- Resident</TITLE>
+<TITLE>Change Password - Registration</TITLE>
 <?PHP
 		session_start();
-		if(isset($_SESSION['access'])&&($_SESSION['access']=='1'))
+		if(isset($_SESSION['access'])&&($_SESSION['access']=='2'))
 		{
 			if(isset($_POST['SUBMIT2']))
 			{
-						header('location:/sen/Modules/Links_temp/resident_links.php');
+						header('location:/sen/Modules/Links_temp/hmc_links.php');
 			}
 				
 			if(isset($_POST['SUBMIT1']))

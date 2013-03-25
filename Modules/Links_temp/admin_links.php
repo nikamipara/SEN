@@ -23,6 +23,16 @@
 				}
 				if(isset($_POST['SUBMIT4']))
 				{
+						header('location:/sen/Modules/admin/register_hmc.php');
+			
+				}
+				if(isset($_POST['SUBMIT5']))
+				{
+						header('location:/sen/Modules/admin/change_hmc.php');
+			
+				}
+				if(isset($_POST['SUBMIT6']))
+				{
 						
 						$_SESSION['access']=0;
 						session_destroy();
@@ -52,7 +62,11 @@
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT3" VALUE="Change Password">
 				<br>
-				<INPUT TYPE="SUBMIT" NAME="SUBMIT4" VALUE="Sign out">
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT4" VALUE="Register HMC">
+				<br>
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT5" VALUE="Change HMC">
+				<br>
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT6" VALUE="Sign out">
 				<br>
 			</FORM>
 </body>
