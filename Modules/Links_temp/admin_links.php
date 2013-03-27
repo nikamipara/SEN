@@ -33,8 +33,14 @@
 				}
 				if(isset($_POST['SUBMIT6']))
 				{
+						header('location:/sen/Modules/admin/register_doctor.php');
+			
+				}
+				if(isset($_POST['SUBMIT9']))
+				{
 						
 						$_SESSION['access']=0;
+						$_SESSION['login_id']=0;
 						session_destroy();
 						header('location:/sen/Modules/login.php');
 			
@@ -66,7 +72,9 @@
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT5" VALUE="Change HMC">
 				<br>
-				<INPUT TYPE="SUBMIT" NAME="SUBMIT6" VALUE="Sign out">
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT6" VALUE="Register New Doctor">
+				<br>
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT9" VALUE="Sign out">
 				<br>
 			</FORM>
 </body>

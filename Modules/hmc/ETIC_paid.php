@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<TITLE>ETIC- Registration</TITLE>
+<TITLE>ETIC-Registration</TITLE>
 <?PHP
 		session_start();
 		if(isset($_SESSION['access'])&&($_SESSION['access']=='2'))
