@@ -1,0 +1,16 @@
+INSERT INTO  `sen`.`residents` (
+`id` ,
+`name` ,
+`room` ,
+`floor` ,
+`wing` ,
+`contact_details` ,
+`guardian_contact_details` ,
+`batch` ,
+`program` ,
+`login_id` ,
+`email`
+)
+VALUES (
+'201001199',  'nikunj',  '101',  '0',  'h',  '56565656',  '56565656',  '2010',  'btech',  'admin1',  'nikamipara@gmial.com'
+);
