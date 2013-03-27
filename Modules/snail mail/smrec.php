@@ -41,12 +41,30 @@ if(!$result){
 		die("database selection failed:".mysql_error());
 	}
 //4. use returned data
+echo '<table border="1">';
+echo "<tr>";
+	echo "<td>snail_mail_id</td>";
+	echo "<td>date</td>";
+	echo "<td>time</td>";
+	echo "<td>sentby</td>";
+	
 while($row = mysql_fetch_array($result)){
-	echo $row["snail_mail_id"]. " ". $row["date"]."". $row["time"]. " ". $row["sentby"]."<br/>";
-
+	echo "<tr>";
+	echo "<td>" . $row["snail_mail_id"] . "</td>";
+	echo "<td>" . $row["date"] . "</td>";
+	echo "<td>" . $row["time"] . "</td>";
+	echo "<td>" . $row["sentby"] ."</td>";
+	
+	echo "<br/>";
+	
+	
+	
+	
+	echo "</tr>";
 
 }
-echo '<br/>'
+echo "</table>";
+echo '<br/>';
 
 // this is  how admin can update status of snamil mail.
 

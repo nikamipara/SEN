@@ -40,10 +40,24 @@ if(!$result){
 		die("database selection failed:".mysql_error());
 	}
 //4. use returned data
+//while($row = mysql_fetch_array($result)){
+//	echo $row["snail_mail_id"]. " ". $row["date"]."". $row["time"]. " ". $row["sentby"]."<br/>";
+
+echo '<table border="1">';
+echo "<tr>";
+	echo "<td>Snail_mail_id</td>";
+	echo "<td>Date</td>";
+	echo "<td>Time</td>";
+	echo "<td>Sentby</td>";
+	
 while($row = mysql_fetch_array($result)){
-	echo $row["snail_mail_id"]. " ". $row["date"]."". $row["time"]. " ". $row["sentby"]."<br/>";
-
-
+	echo "<tr>";
+	echo "<td>" . $row["snail_mail_id"] . "</td>";
+	echo "<td>" . $row["date"] . "</td>";
+	echo "<td>" . $row["time"] . "</td>";
+	echo "<td>" . $row["sentby"] ."</td>";
+	
+	echo "<br/>";
 }
 
 ?>
