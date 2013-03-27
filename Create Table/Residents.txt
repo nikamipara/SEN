@@ -8,7 +8,7 @@ create table residents(
         guardian_contact_details integer(12),
         batch integer(5) not null,
         program char(10) not null,
-		login_id char(30) references login_id(login)
-		email char(30) not null
+	login_id char(30),
+	email char(30) not null,
         FOREIGN KEY (login_id) REFERENCES login(login_id) 
 );

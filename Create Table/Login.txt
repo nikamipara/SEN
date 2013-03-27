@@ -1,3 +1,6 @@
-INSERT INTO `login` (`login_id`, `password`, `priority`) VALUES
-('201001220', 'reset123', 1),
-('admin1', 'admin1', 4);
+CREATE TABLE IF NOT EXISTS `login` (
+`login_id` char(30) NOT NULL,
+`password` char(30) NOT NULL,
+`priority` int(3) DEFAULT NULL,
+PRIMARY KEY (`login_id`)
+)
