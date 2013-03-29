@@ -1,2 +1,2 @@
-INSERT INTO `sen`.`snail_mail` (`snail_mail_id`, `date`, `time`, `received_status`, `id`, `sentby`)
- VALUES (NULL, '2013-03-13', '10:10:10', '0', '201001199', 'speed post ,ramesh bhai');
+INSERT INTO `snail_mail`(`date`, `time`, `id`, `sentby`) 
+VALUES (2013-02-31,12:25:00, "201001199","rameshbhai spped post ")

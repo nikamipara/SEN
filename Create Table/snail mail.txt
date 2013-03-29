@@ -9,11 +9,11 @@ CREATE TABLE IF NOT EXISTS `snail_mail` (
   
 `received_status` tinyint(1) NOT NULL DEFAULT '0',
  
- `id` char(30),
+ `Id` char(30) NOT NULL,
   
 `sentby` varchar(100) NOT NULL,
  
  PRIMARY KEY (`snail_mail_id`)
-,
-FOREIGN KEY (id) REFERENCES residents(id) 
+
+FOREIGN KEY (Id) REFERENCES residents(login_id) 
 )
