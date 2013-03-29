@@ -83,19 +83,24 @@
 						session_start();
 						$_SESSION['access']=$out['priority'];
 						$_SESSION['login_id']=$out['login_id'];
-						if($out['priority']==4)
-						{
-							header('location:/sen/Modules/Links_temp/admin_links.php');
-						}
+						
 						if($out['priority']==6)
 						{
 							header('location:/sen/Modules/Links_temp/doctor_links.php');
 						}
-						if($out['priority']==2)
+						else if($out['priority']==5)
+						{
+							header('location:/sen/Modules/Links_temp/guard_links.php');
+						}
+						else if($out['priority']==4)
+						{
+							header('location:/sen/Modules/Links_temp/admin_links.php');
+						}
+						else if($out['priority']==2)
 						{
 							header('location:/sen/Modules/Links_temp/hmc_links.php');
 						}
-						if($out['priority']==1)
+						else if($out['priority']==1)
 						{
 							header('location:/sen/Modules/Links_temp/resident_links.php');
 						}
