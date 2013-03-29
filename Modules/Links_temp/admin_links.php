@@ -36,6 +36,11 @@
 						header('location:/sen/Modules/admin/register_doctor.php');
 			
 				}
+				if(isset($_POST['SUBMIT7']))
+				{
+						header('location:/sen/Modules/admin/register_laptop.php');
+			
+				}
 				if(isset($_POST['SUBMIT9']))
 				{
 						
@@ -73,6 +78,8 @@
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT5" VALUE="Change HMC">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT6" VALUE="Register New Doctor">
+				<br>
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT7" VALUE="Register New Laptop">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT9" VALUE="Sign out">
 				<br>

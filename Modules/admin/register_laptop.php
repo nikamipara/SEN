@@ -1,30 +1,30 @@
 <HTML>
 <HEAD>
-<TITLE>Student - Entries</TITLE>
+<TITLE>Registration- Reisdents</TITLE>
 <?PHP
 		session_start();
-		if(isset($_SESSION['access'])&&($_SESSION['access']=='6'))
+		if(isset($_SESSION['access'])&&($_SESSION['access']=='4'))
 		{
 			if(isset($_POST['SUBMIT2']))
 			{
-						header('location:/sen/Modules/Links_temp/doctor_links.php');
+						header('location:/sen/Modules/Links_temp/admin_links.php');
 			}
 				
 			if(isset($_POST['SUBMIT1']))
 			{
 			
-				$login_id=$_SESSION['login_id'];
+				$laptop_id=$_POST['laptop_id'];
 				$resident_id=$_POST['resident_id'];
-				$ailment=$_POST['ailment'];
+				$name_of_manu=$_POST['name_of_manu'];
+				$invoice_no=$_POST['invoice_no'];
 				$db_handle=Connect_To_Server();
 				$db_found=Connect_To_DB();
-				student_entries($login_id,$resident_id,$ailment);
+				register_laptop($laptop_id,$resident_id,$name_of_manu,$invoice_no);
 				Close_To_Server($db_handle);
 			}
 		}
 		else 
 		{
-			
 			$_SESSION['access']=0;
 			session_destroy();
 			header('location:/sen/Modules/login.php');
@@ -35,13 +35,17 @@
 </HEAD>
 
 <BODY>
-	<FORM NAME="form2" METHOD="POST" ACTION="student_entries.php" >
+	<FORM NAME="form2" METHOD="POST" ACTION="register_Laptop.php" >
 	
-		Resident ID : <INPUT TYPE="TEXT" NAME="resident_id"> 
+		ID of Resident: <INPUT TYPE="TEXT" NAME="resident_id"> 
 		<br>
-		Ailment: <INPUT TYPE="TEXT"  NAME="ailment">
+		Serial Number: <INPUT TYPE="TEXT"  NAME="laptop_id">
 		<br>
-		<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="Insert">
+		Name of Manufacturer : <INPUT TYPE="TEXT"  NAME="name_of_manu">
+		<br>
+		Invoice Number: <INPUT TYPE="TEXT"  NAME="invoice_no">
+		<br>
+		<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="Register Laptop">
 		<br>
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Go Back">
 	</FORM>	
@@ -75,22 +79,20 @@
 		{
 			mysql_close($db_handle);
 		}
-		function student_entries($login_id,$resident_id,$ailment)
+		function register_laptop($laptop_id,$resident_id,$name_of_manu,$invoice_no)
 		{
-				$SQL_Query="select doctor_id from doctor natural join login where login_id='$login_id' ";
-				$result=mysql_query($SQL_Query);
-				$out=mysql_fetch_assoc($result);
-				$doctor_id=$out['doctor_id'];
-				$date_time=date('Y-m-d h:i:s ', time());
-				$SQL_Query="INSERT INTO doctor_visit(`visit_id`, `time_date`, `doctor_id`, `resident_id`, `Ailment`) VALUES (NULL, '$date_time', '$doctor_id', '$resident_id', '$ailment')";
+				$SQL_Query="INSERT INTO laptop_registration VALUES ('$laptop_id','$resident_id','$name_of_manu','i','$invoice_no')";
 				$result=mysql_query($SQL_Query);
 				if($result==false)
 				{
-						echo mysql_error();
+						if( mysql_errno()==1452)
+							echo "Resident entry not found";
+						
 				}
 				else
 				{
-					echo "Successful";
+							echo "Register Successfully";
+				
 				}
 			
 		}
