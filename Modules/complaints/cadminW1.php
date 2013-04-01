@@ -1,23 +1,37 @@
-
+<?php
+function Connect_TO_Server()
+		{
+			$usernamedb="root";
+			$passworddb="nikunj";
+			$server=$_SERVER['SERVER_ADDR'];
+			$db_handle=mysql_connect($server,$usernamedb,$passworddb);
+			return $db_handle; 
+		}
+		function Connect_TO_DB()
+		{
+			$database="sen";
+			$db_found = mysql_select_db($database);
+			if(!$db_found)
+			{
+				print "error in connection to database";
+			}
+			echo nl2br("\n");
+		}
+		function Close_To_Server($db_handle)
+		{
+			mysql_close($db_handle);
+		}
+?>
+<?php
+//include ('sen/databasefun.php');
+$db=Connect_To_Server();
+$db_found=Connect_To_DB();
+?>
 <?php
 /// this page is for Deleting GENERAL complaints at user side.......................................................
  //by nikunj amipara,
   $ty = "Water";
-	//1 create database connection
 	
-	$path = "localhost";
-	$pass = "nikunj";
-	$user = "root";
-	$db = mysql_connect("localhost","root","nikunj");
-	if(!$db){
-		die("Database connection ended" .mysql_error());
-	
-	}
-	//2. selection of database
-	$db_select = mysql_select_db("sen",$db);
-	if(!$db_select){
-		die("database selection failed:".mysql_error());
-	}
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
