@@ -17,7 +17,7 @@
 						$_SESSION['access']=0;
 						$_SESSION['login_id']=0;
 						session_destroy();
-						header('location:/sen/Modules/login.php');
+						header('location:/sen/Modules/login/login.php');
 			
 				}
 		}

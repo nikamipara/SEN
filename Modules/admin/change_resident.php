@@ -14,18 +14,14 @@
 			{
 			
 				$id=$_POST['id'];
-				$name=$_POST['name'];
 				$wing=$_POST['wing'];
 				$floor=$_POST['floor'];
 				$room=$_POST['room'];
 				$contact=$_POST['contact'];
-				$gender=$_POST['genders'];
-				$batch=$_POST['batch'];
 				$gcontact=$_POST['gcontact'];
-				$program=$_POST['program'];
 				$db_handle=Connect_To_Server();
 				$db_found=Connect_To_DB();
-				register($id,$name,$wing,$floor,$room,$contact,$gender,$batch,$gcontact,$program);
+				change_resident($id,$wing,$floor,$room,$contact,$gcontact);
 				Close_To_Server($db_handle);
 			}
 		}
@@ -41,13 +37,13 @@
 </HEAD>
 
 <BODY>
-	<FORM NAME="form1" METHOD="POST" ACTION="register_resident.php" >
-	
+	<FORM NAME="form1" METHOD="POST" ACTION="Change_resident.php" >
+		In case there is no change in a field Enter unchanged
 		ID   : <INPUT TYPE="TEXT" NAME="id"> 
 		<br>
-		Name : <INPUT TYPE="TEXT"  NAME="name">
-		<br>
 		Wing : <select name="wing">
+			
+			<option value="unchanged">unchanged</option>
 			<option value="a">A</option>
 			<option value="b">B</option>
 			<option value="c">C</option>
@@ -60,24 +56,16 @@
 			<option value="k">K</option>
 			</select>
 		<br>
-		Floor : <INPUT TYPE="TEXT"  NAME="floor">
+		Floor : <INPUT TYPE="TEXT"  NAME="floor" value="unchanged">
 		<br>
-		Room Number: <INPUT TYPE="NUMBER"  NAME="room">
+		Room Number: <INPUT TYPE="NUMBER"  NAME="room" value="unchanged">
 		<br>
-		Contact Details : <INPUT TYPE="NUMBER"  NAME="contact">
+		Contact Details : <INPUT TYPE="NUMBER"  NAME="contact" value="unchanged">
 		<br>
-		Gender:  
-		<input type="radio" NAME="genders" value="m">Male           
-		<input type="radio" NAME="genders" value="f">Female
-		<br>
-		Batch : <INPUT TYPE="NUMBER"  NAME="batch">
-		<br>
-		Program : <INPUT TYPE="TEXT"  NAME="program">
-		<br>
-		Guardian Contact details : <INPUT TYPE="NUMBER"  NAME="gcontact">
+		Guardian Contact details : <INPUT TYPE="NUMBER"  NAME="gcontact" value="unchanged">
 		<br>
 		
-		<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="REGISTER">
+		<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="Change the Values">
 		<br>
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Go Back">
 	</FORM>	

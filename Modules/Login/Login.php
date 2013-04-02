@@ -2,6 +2,9 @@
 <HEAD>
 <TITLE>A Basic login Form</TITLE>
 <?PHP
+		
+		require("phpmailer/class.phpmailer.php");
+		require("phpmailer/class.smtp.php");
 		if(isset($_POST['SUBMIT1']))
 		{
 			
@@ -13,7 +16,15 @@
 			
 			Close_To_Server($db_handle);
 		}
-		
+		if(isset($_POST['SUBMIT2']))
+		{
+			
+			$username=$_POST['username'];
+			$db_handle=Connect_To_Server();
+			$db_found=Connect_To_DB();
+			forgot_password($username);
+			Close_To_Server($db_handle);
+		}
 		else 
 		{
 				print("please enter username below");
@@ -30,6 +41,8 @@
 		Password : <INPUT TYPE="PASSWORD"  NAME="password">
 		<br>
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="LOGIN">
+		<INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Forgot Password">
+		
 	</FORM>	
 	
 
@@ -78,7 +91,6 @@
 						
 						echo nl2br("\n");
 						echo "hi ";
-						echo $username . "<BR>" . "Your login was succesful" ;
 						echo nl2br("\n");
 						session_start();
 						$_SESSION['access']=$out['priority'];
@@ -118,4 +130,58 @@
 			}
 			
 		}
+		
+		function forgot_password($password)
+		{	
+			$mail = new PHPMailer(); 
+			$mail->IsSMTP(); // send via SMTP
+			$mail->SMTPAuth = true; // turn on SMTP authentication
+			$mail->Username = "daiicthor@gmail.com"; // SMTP username
+			$mail->Password = "horofdaiict"; // SMTP password
+			$mail->SMTPKeepAlive = true;                  // SMTP connection will not close after each email sent
+			$webmaster_email = "da_hostel@daiict.ac.in"; 				//Reply to this email ID
+			$webmaster_name="admin";
+
+			$mail->From = $webmaster_email;
+
+			$mail->FromName = $webmaster_name;
+
+			$mail->AddReplyTo($webmaster_email,$webmaster_name);
+
+														
+			$mail->IsHTML(true); // send as HTML
+			
+
+			$mail->WordWrap = 50; // set word wrap									//only suportsmax 500 users
+
+																					//$mail->AddAttachment("/var/tmp/file.tar.gz"); // attachment
+
+																					//$mail->AddAttachment("/tmp/image.jpg", "new.jpg"); // attachment
+			$SQL_Query="select email,password,name from login natural join residents where login_id='$username'";
+			$result_query=mysql_query($SQL_Query);
+			$out=mysql_fetch_assoc($result);
+			if($out['email']=="")
+			{
+				echo "Your Username was not found";
+			}
+			else
+			{
+			
+				$password=$out['password'];
+				$mail->Subject ='Password of Hostel Management Website at DAIICT' ;
+				$mail->Body = "Your Password is $password "; 										//HTML Body
+				$mail->AddAddress($out['password'],$out['name']);
+				if(!$mail->Send())
+				{
+					echo "Mailer Error: " . $mail->ErrorInfo;
+				}
+				else
+				{
+					echo "An email has been sent to your registered email id";
+				}
+			}
+}
+
+	 
+
 ?>

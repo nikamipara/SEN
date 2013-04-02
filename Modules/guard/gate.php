@@ -32,7 +32,6 @@
 			{
 			
 				$resident_id=$_POST['resident_id'];
-				
 				$purpose=$_POST['purpose'];
 				$db_handle=Connect_To_Server();
 				$db_found=Connect_To_DB();

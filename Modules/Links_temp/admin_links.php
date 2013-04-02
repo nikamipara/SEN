@@ -41,13 +41,18 @@
 						header('location:/sen/Modules/admin/register_laptop.php');
 			
 				}
+				if(isset($_POST['SUBMIT8']))
+				{
+						header('location:/sen/Modules/admin/Change_resident.php');
+			
+				}
 				if(isset($_POST['SUBMIT9']))
 				{
 						
 						$_SESSION['access']=0;
 						$_SESSION['login_id']=0;
 						session_destroy();
-						header('location:/sen/Modules/login.php');
+						header('location:/sen/Modules/login/login.php');
 			
 				}
 		}
@@ -80,6 +85,8 @@
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT6" VALUE="Register New Doctor">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT7" VALUE="Register New Laptop">
+				<br>
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT8" VALUE="Change Resident Details">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT9" VALUE="Sign out">
 				<br>
