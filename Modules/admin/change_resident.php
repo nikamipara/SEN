@@ -99,52 +99,59 @@
 		{
 			mysql_close($db_handle);
 		}
-		function register($id,$name,$wing,$floor,$room,$contact,$gender,$batch,$gcontact,$program)
+		function change_resident($id,$wing,$floor,$room,$contact,$gcontact)
 		{
-			$SQL_Query=" select count(*) as count from residents where room = '$room' and wing = '$wing' ";
-			$result3=mysql_query($SQL_Query);
-			
-			$rowt = mysql_fetch_assoc($result3);
-						
-			if(($gender=="f")&&($wing!="j"&&wing!="k"))
+			$SQL_Query="select * from resident where id='$id'";
+			$result=mysql_query($SQL_Query);
+			$out=mysql_fetch_assoc($result);
+			if($out['id']=="")
 			{
-				echo "Invalid Wing ";
-			}
-			else if(($gender=="m")&&($wing!="a"&&$wing!="b"&&$wing!="c"&&$wing!="d"&&$wing!="e"&&$wing!="f"&&$wing!="g"&&$wing!="h"))
+				echo "Your Username was not found";
+			}				
+			else	
 			{
-				echo "Invalid Wing ";
-			}
-			else if($gender!=="m"&&$gender!="f")
-			{
-				echo "invalid Gender";
-			}
-			else if($rowt['count']>1)
-			{
-				echo "There cant be more than 2 residents residing in one room";
-			}
-			else
-			{
+				$gender=$out['gender'];
 				
-				$password="reset123";
-				$access="1";
-				$SQL_Query="INSERT INTO login VALUES ('$id','$password','$access')";
-				$result=mysql_query($SQL_Query);
-				if($result==false)
+				if((($gender=="f")&&($wing!="j"&&wing!="k"))||$wing!="unchanged")
 				{
-						echo mysql_error();
+					echo "Invalid Wing ";
+				}
+				else if((($gender=="m")&&($wing!="a"&&$wing!="b"&&$wing!="c"&&$wing!="d"&&$wing!="e"&&$wing!="f"&&$wing!="g"&&$wing!="h"))||$wing!="unchanged")
+				{
+					echo "Invalid Wing ";
+				}
+				else if($gender!=="m"&&$gender!="f"&&$gender!="unchanged")
+				{
+					echo "invalid Gender";
 				}
 				else
 				{
-					$email=$id."@daiict.ac.in";
-					$SQL_Query="INSERT INTO residents(id,name,room,floor,wing,contact_details,guardian_contact_details,batch,program,email,login_id) VALUES ('$id','$name','$room','$floor','$wing','$contact','$gcontact','$batch','$program','$email','$id')";
+					if($wing=="unchanged")
+					{
+							$wing=$out['wing'];
+					}
+					if($floor=="unchanged")
+					{
+							$floor=$out['floor'];
+					}
+					if($room=="unchanged")
+					{
+							$room=$out['room'];
+					}
+					
+					if($contact=="unchanged")
+					{
+							$contact=$out['contact_details'];
+					}
+					if($gcontact=="unchanged")
+					{
+							$gcontact=$out['guardian_contact_details'];
+					}
+					$SQL_Query="update residents set wing='$wing',room='$room',floor='$floor',contact_details='$contact',guardian_contact_details='$gcontact' where id='$id' ";
 					$result=mysql_query($SQL_Query);
 					if($result==false)
 					{
-							echo mysql_error();
-							$SQL_Query="delete from login where login_id='$id'";
-							$result=mysql_query($SQL_Query);
-						
-							echo mysql_error();
+						echo mysql_error();
 					}
 					else
 					{
