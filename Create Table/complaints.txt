@@ -20,6 +20,6 @@ CREATE TABLE IF NOT EXISTS `complaints` (
  
  PRIMARY KEY (`complaints_id`)
 ,
-FOREIGN KEY (id) REFERENCES residents(id);
+FOREIGN KEY (id) REFERENCES residents(id)
 )
-************************ type 0 means not resolved and visa v******************
+--************************ type 0 means not resolved and visa v******************
