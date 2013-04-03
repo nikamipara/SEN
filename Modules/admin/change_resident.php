@@ -29,7 +29,7 @@
 		{
 			$_SESSION['access']=0;
 			session_destroy();
-			header('location:/sen/Modules/login.php');
+			header('location:/sen/Modules/login/login.php');
 			echo "invalid Login";
 		}
 		
@@ -38,7 +38,7 @@
 
 <BODY>
 	<FORM NAME="form1" METHOD="POST" ACTION="Change_resident.php" >
-		In case there is no change in a field Enter unchanged
+		In case there is no change in a field Enter "unchanged"
 		ID   : <INPUT TYPE="TEXT" NAME="id"> 
 		<br>
 		Wing : <select name="wing">

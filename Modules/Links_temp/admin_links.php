@@ -58,7 +58,7 @@
 		}
 		else
 		{
-			header('location:/sen/Modules/login.php');
+			header('location:/sen/Modules/login/login.php');
 			echo "Please login properly";
 			
 		}

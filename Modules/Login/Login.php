@@ -108,6 +108,10 @@
 						{
 							header('location:/sen/Modules/Links_temp/admin_links.php');
 						}
+						else if($out['priority']==3)
+						{
+							header('location:/sen/Modules/Links_temp/hmc_convener_links.php');
+						}
 						else if($out['priority']==2)
 						{
 							header('location:/sen/Modules/Links_temp/hmc_links.php');
@@ -181,7 +185,4 @@
 				}
 			}
 }
-
-	 
-
 ?>
