@@ -15,6 +15,11 @@
 						header('location:/sen/Modules/hmc_converner/change_artifact.php');
 			
 				}
+				if(isset($_POST['SUBMIT2']))
+				{
+						header('location:/sen/Modules/hmc_converner/view_etic.php');
+			
+				}
 				if(isset($_POST['SUBMIT9']))
 				{
 						
@@ -44,6 +49,8 @@
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="Add Artifact">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Change Artifact">
+				<br>
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT3" VALUE="View ETIC">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT9" VALUE="Sign out">
 				<br>
