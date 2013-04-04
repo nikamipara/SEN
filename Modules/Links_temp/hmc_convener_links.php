@@ -10,6 +10,11 @@
 						header('location:/sen/Modules/hmc_converner/add_artifact.php');
 			
 				}
+				if(isset($_POST['SUBMIT2']))
+				{
+						header('location:/sen/Modules/hmc_converner/change_artifact.php');
+			
+				}
 				if(isset($_POST['SUBMIT9']))
 				{
 						
@@ -37,6 +42,8 @@
 				<FORM NAME="form2" METHOD="POST" ACTION="admin_links.php" >
 			
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="Add Artifact">
+				<br>
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Change Artifact">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT9" VALUE="Sign out">
 				<br>
