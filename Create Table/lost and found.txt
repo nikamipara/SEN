@@ -17,6 +17,6 @@ CREATE TABLE IF NOT EXISTS `lost_found` (
  
  PRIMARY KEY (`lost_found_id`)
 ,
-FOREIGN KEY (id) REFERENCES residents(id);
+FOREIGN KEY (id) REFERENCES residents(id)
 )
 ************************ type 0 means lost and 1 means found******************
