@@ -135,7 +135,7 @@
 			
 		}
 		
-		function forgot_password($password)
+		function forgot_password($username)
 		{	
 			$mail = new PHPMailer(); 
 			$mail->IsSMTP(); // send via SMTP
@@ -163,18 +163,18 @@
 																					//$mail->AddAttachment("/tmp/image.jpg", "new.jpg"); // attachment
 			$SQL_Query="select email,password,name from login natural join residents where login_id='$username'";
 			$result_query=mysql_query($SQL_Query);
-			$out=mysql_fetch_assoc($result);
+			$out=mysql_fetch_assoc($result_query);
 			if($out['email']=="")
 			{
-				echo "Your Username was not found";
+				echo "Your Username was not found <br> Non Residents need to contact the Hostel Administrators to reset their passwords";
 			}
 			else
 			{
 			
 				$password=$out['password'];
 				$mail->Subject ='Password of Hostel Management Website at DAIICT' ;
-				$mail->Body = "Your Password is $password "; 										//HTML Body
-				$mail->AddAddress($out['password'],$out['name']);
+				$mail->Body = "Your Username and Password for HMC Website of DAIICT is <br> Login ID :$username <br>Password: $password "; 										//HTML Body
+				$mail->AddAddress($out['email'],$out['name']);
 				if(!$mail->Send())
 				{
 					echo "Mailer Error: " . $mail->ErrorInfo;

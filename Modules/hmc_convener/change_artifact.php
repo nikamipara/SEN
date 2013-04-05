@@ -33,7 +33,7 @@
 </HEAD>
 
 <BODY>
-	<FORM NAME="form2" METHOD="POST" ACTION="change_artifacts.php" >
+	<FORM NAME="form2" METHOD="POST" ACTION="change_artifact.php" >
 		ID :<INPUT TYPE ="TEXT" NAME="id">
 		<br>
 		Location :<INPUT TYPE ="TEXT" NAME="LOCATION">
