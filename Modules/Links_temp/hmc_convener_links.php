@@ -12,12 +12,12 @@
 				}
 				if(isset($_POST['SUBMIT2']))
 				{
-						header('location:/sen/Modules/hmc_converner/change_artifact.php');
+						header('location:/sen/Modules/hmc_convener/change_artifact.php');
 			
 				}
-				if(isset($_POST['SUBMIT2']))
+				if(isset($_POST['SUBMIT3']))
 				{
-						header('location:/sen/Modules/hmc_converner/view_etic.php');
+						header('location:/sen/Modules/hmc_convener/view_etic.php');
 			
 				}
 				if(isset($_POST['SUBMIT9']))

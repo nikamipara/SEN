@@ -1,16 +1,16 @@
 <HTML>
 <HEAD>
-<TITLE>ETIC- Registration</TITLE>
+<TITLE>View ETIC</TITLE>
 <?PHP
   	session_start();
 		if(isset($_SESSION['access'])&&($_SESSION['access']=='3'))
 		{
 			if(isset($_POST['SUBMIT2']))
 			{
-						header('location:/sen/Modules/Links_temp/resident_links.php');
+						header('location:/sen/Modules/Links_temp/hmc_convener_links.php');
 			}
 	
-			   	 $db_handle=Connect_To_Server();
+			   	$db_handle=Connect_To_Server();
 				$db_found=Connect_To_DB();
 				etic_view();
 				Close_To_Server($db_handle);
@@ -26,7 +26,10 @@
 
 ?>
 </HEAD>
-
+<BODY>
+		<FORM NAME="form2" METHOD="POST" ACTION="view_etic.php" >
+		<INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Go Back">
+		</FORM>
 </BODY>
 
 </HTML>
@@ -65,15 +68,15 @@
 				}
 				else 
 				{
-						echo "<table>";
-						echo"<tr><td>Student_id</td><td>Newspaper</td><td>Paid</td><td>Paid_to</td>"
+						echo "<table border='1'>";
+						echo"<tr><td>Student_id</td><td>Newspaper</td><td>Paid</td><td>Paid_to</td>";
 						while($out=mysql_fetch_assoc($result))
 						{
 							$id=$out['id'];
 							$paid=$out['paid'];
-							$newpaper=$out['newpaper'];
+							$newspaper=$out['newpaper'];
 							$paid_to=$out['Payment_recv_from'];
-							echo"<tr><td>$id</td><td>$newspaper</td><td>$paid</td><td>$paid_to</td>"
+							echo"<tr><td>$id</td><td>$newspaper</td><td>$paid</td><td>$paid_to</td>";
 						}
 						echo"</table>";
 				}

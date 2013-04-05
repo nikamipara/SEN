@@ -7,7 +7,7 @@
 		{
 			if(isset($_POST['SUBMIT2']))
 			{
-						header('location:/sen/Modules/Links_temp/hmc_converner_links.php');
+						header('location:/sen/Modules/Links_temp/hmc_convener_links.php');
 			}
 				
 			if(isset($_POST['SUBMIT1']))
