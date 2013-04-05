@@ -7,7 +7,7 @@
 		{
 				if(isset($_POST['SUBMIT1']))
 				{
-						header('location:/sen/Modules/hmc_converner/add_artifact.php');
+						header('location:/sen/Modules/hmc_convener/add_artifact.php');
 			
 				}
 				if(isset($_POST['SUBMIT2']))
@@ -44,7 +44,7 @@
 </head>
 
 <body bgcolor="#FFFFFF" text="#000000">
-				<FORM NAME="form2" METHOD="POST" ACTION="admin_links.php" >
+				<FORM NAME="form2" METHOD="POST" ACTION="hmc_convener_links.php" >
 			
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="Add Artifact">
 				<br>

@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<TITLE>Registration- Reisdents</TITLE>
+<TITLE>Add Artifacts</TITLE>
 <?PHP
 		session_start();
 		if(isset($_SESSION['access'])&&($_SESSION['access']=='3'))
@@ -15,7 +15,7 @@
 			
 				$name=$_POST['name'];
 				$location=$_POST['location'];
-				$resident_id=$_POST['location'];
+				$resident_id=$_POST['resident_id'];
 				$db_handle=Connect_To_Server();
 				$db_found=Connect_To_DB();
 				add_artifact($resident_id,$name,$location);
@@ -34,7 +34,7 @@
 </HEAD>
 
 <BODY>
-	<FORM NAME="form2" METHOD="POST" ACTION="add_artifacts.php" >
+	<FORM NAME="form2" METHOD="POST" ACTION="add_artifact.php" >
 	
 		Name : <INPUT TYPE="TEXT" NAME="name"> 
 		<br>
@@ -78,11 +78,12 @@
 		}
 		function add_artifact($resident_id,$name,$location)
 		{
-				$SQL_Query="INSERT INTO activities (resident_id,location,Name) VALUES ('$resident_id','$location','$name')";
+				$SQL_Query="INSERT INTO activities (resident_id,location,Name) VALUES('$resident_id','$location','$name')";
 				$result=mysql_query($SQL_Query);
 				if($result==false)
 				{
-						echo mysql_error();
+						if(mysql_errno()==1452)
+							echo "There is No Resident with the given id";
 				}
 				else
 				{
