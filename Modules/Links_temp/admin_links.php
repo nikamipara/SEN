@@ -51,6 +51,11 @@
 						header('location:/sen/Modules/admin/view_doctor_suggestions.php');
 			
 				}
+				if(isset($_POST['SUBMIT11']))
+				{
+						header('location:/sen/Modules/admin/reset_password.php');
+			
+				}
 				if(isset($_POST['SUBMIT9']))
 				{
 						
@@ -94,6 +99,8 @@
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT8" VALUE="Change Resident Details">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT10" VALUE="View Doctor Suggestions">
+				<br>
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT11" VALUE="Reset Password Of Other Accounts">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT9" VALUE="Sign out">
 				<br>

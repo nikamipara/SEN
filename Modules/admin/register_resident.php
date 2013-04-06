@@ -118,7 +118,7 @@
 			
 			$rowt = mysql_fetch_assoc($result3);
 						
-			if(($gender=="f")&&($wing!="j"&&wing!="k"))
+			if(($gender=="f")&&($wing!="j"&&$wing!="k"))
 			{
 				echo "Invalid Wing ";
 			}
