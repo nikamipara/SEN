@@ -61,6 +61,11 @@
 						header('location:/sen/Modules/admin/view_student_details.php');
 			
 				}
+				if(isset($_POST['SUBMIT13']))
+				{
+						header('location:/sen/Modules/admin/view_laptop_registrations.php');
+			
+				}
 				if(isset($_POST['SUBMIT9']))
 				{
 						
@@ -108,6 +113,8 @@
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT11" VALUE="Reset Password Of Other Accounts">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT12" VALUE="View Student Details">
+				<br>
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT13" VALUE="View Laptop Registrations">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT9" VALUE="Sign out">
 				<br>

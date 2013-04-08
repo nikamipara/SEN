@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<TITLE>Registration- Reisdents</TITLE>
+<TITLE>View Laptop Registration</TITLE>
 <?PHP
 		session_start();
 		if(isset($_SESSION['access'])&&($_SESSION['access']=='4'))
@@ -12,7 +12,6 @@
 				
 			if(isset($_POST['SUBMIT1']))
 			{
-			
 				$id=$_POST['id'];
 				$name=$_POST['name'];
 				$wing=$_POST['wing'];
@@ -68,7 +67,7 @@
 		<br>
 		Room Number: <INPUT TYPE="NUMBER"  NAME="room">
 		<br>
-		Contact Details : <INPUT TYPE="NUMBER"  NAME="contact">
+		Contact Details : <INPUT TYPE="TEXT"  NAME="contact">
 		<br>
 		Gender:  
 		<input type="radio" NAME="genders" value="m">Male           
@@ -158,6 +157,7 @@
 					{
 							$SQL_Query="delete from login where login_id='$id'";
 							$result=mysql_query($SQL_Query);
+							echo mysql_error();
 					}
 					else
 					{
