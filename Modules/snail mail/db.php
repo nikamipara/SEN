@@ -2,7 +2,7 @@
 function Connect_TO_Server()
 		{
 			$usernamedb="root";
-			$passworddb="nikunj";
+			$passworddb="";
 			$server=$_SERVER['SERVER_ADDR'];
 			$db_handle=mysql_connect($server,$usernamedb,$passworddb);
 			return $db_handle; 
