@@ -271,7 +271,8 @@
 						if($in_out=='out')
 						{
 							echo "<INPUT TYPE='SUBMIT' NAME='SUBMIT21' VALUE='Confirm'>";
-						}	
+						}
+						echo "<INPUT TYPE='SUBMIT' NAME='SUBMIT22' VALUE='Wrong Invoice Number'>";
 						echo "<br>";
 						echo "</form>";
 						$_SESSION['rid']=$resident_id;
