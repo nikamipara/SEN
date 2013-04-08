@@ -15,7 +15,6 @@ function Connect_TO_Server()
 			{
 				print "error in connection to database";
 			}
-			echo nl2br("\n");
 		}
 		function Close_To_Server($db_handle)
 		{
