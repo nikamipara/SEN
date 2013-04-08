@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<TITLE>Registration- Reisdents</TITLE>
+<TITLE>Gate</TITLE>
 <?PHP
 		session_start();
 		if(isset($_SESSION['access'])&&($_SESSION['access']=='5'))
@@ -127,8 +127,9 @@
 			?>
 		<br>
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT7" VALUE="Go Back">
+		
 	</FORM>	
-	
+	<?php view_form(); ?>
 
 </BODY>
 
@@ -308,5 +309,64 @@
 						echo "out Successful";
 				}
 		}
+		function dhobi_status_in($dhobi_id)
+		{
+				
+				$SQL_Query="update dhobi_status set present='i' where dhobi_id='$dhobi_id' ";
+				$result=mysql_query($SQL_Query);
+				if($result==false)
+				{
+						echo mysql_error();
+				}
+				else
+				{
+					echo "Successful";
+				}
+		}
+		function dhobi_status_out($dhobi_id)
+		{
+				
+				$SQL_Query="update dhobi_status set present='o' where dhobi_id='$dhobi_id' ";
+				$result=mysql_query($SQL_Query);
+				if($result==false)
+				{
+						echo mysql_error();
+				}
+				else
+				{
+					echo "Successful";
+				}
+		}
+		function view_form()
+		{
+				$db_handle=Connect_To_Server();
+				$db_found=Connect_To_DB();
+				$SQL_Query="select dhobi_id,name from dhobi_status";
+				$result=mysql_query($SQL_Query);
+				if($result==false)
+				{
+						echo mysql_error();
+				}
+				else
+				{
+					echo "<FORM NAME='form3' METHOD='POST' ACTION='gate.php' >";
+					echo  "	Name: <select name='dhobi_id'>";
+				
+					while($out=mysql_fetch_assoc($result))
+					{
+						$name=$out['name'];
+						$dhobi_id=$out['dhobi_id'];
+						echo  "<option value=$dhobi_id> $dhobi_id : $name </option>";
+					}
+	
+					echo "</select>";
+					echo "<br>";
+					echo "<input type='SUBMIT' NAME='SUBMIT10' VALUE='Dhobi Enter' >";
+					echo "<br>";
+					echo "<input type='SUBMIT' NAME='SUBMIT11' VALUE='Dhobi Exit' >";
+					echo "</FORM>";
+				}
+		}
+		
 		
 ?>

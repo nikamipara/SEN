@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<TITLE>Registration- Reisdents</TITLE>
+<TITLE>Registration- Doctor</TITLE>
 <?PHP
 		session_start();
 		if(isset($_SESSION['access'])&&($_SESSION['access']=='4'))
@@ -9,17 +9,14 @@
 			{
 						header('location:/sen/Modules/Links_temp/admin_links.php');
 			}
-
+				
 			if(isset($_POST['SUBMIT1']))
 			{
-
-				$doctor_id=$_POST['doctor_id'];
-				$login_id=$_POST['login_id'];
-				$password=$_POST['password'];
+			
 				$name=$_POST['name'];
 				$db_handle=Connect_To_Server();
 				$db_found=Connect_To_DB();
-				register_doctor($login_id,$doctor_id,$password,$name);
+				register_dhobi($name);
 				Close_To_Server($db_handle);
 			}
 		}
@@ -30,22 +27,16 @@
 			header('location:/sen/Modules/login.php');
 			echo "invalid Login";
 		}
-
+		
 ?>
 </HEAD>
 
 <BODY>
-	<FORM NAME="form2" METHOD="POST" ACTION="register_doctor.php" >
+	<FORM NAME="form2" METHOD="POST" ACTION="register_dhobi.php" >
 	
-		Login ID   : <INPUT TYPE="TEXT" NAME="login_id"> 
-		<br>
-		Doctor ID: <INPUT TYPE="TEXT"  NAME="doctor_id">
-		<br>
-		Password : <INPUT TYPE="password"  NAME="password" value="reset123">
-		<br>
 		Name: <INPUT TYPE="TEXT"  NAME="name">
 		<br>
-		<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="Register Doctor">
+		<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="Register Dhobi">
 		<br>
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Go Back">
 	</FORM>	
@@ -79,10 +70,9 @@
 		{
 			mysql_close($db_handle);
 		}
-		function register_doctor($login_id,$doctor_id,$password,$name)
+		function register_dhobi($name)
 		{
-				$access=6;
-				$SQL_Query="INSERT INTO login VALUES ('$login_id','$password','$access')";
+				$SQL_Query="INSERT INTO dhobi_status(name) VALUES ('$name')";
 				$result=mysql_query($SQL_Query);
 				if($result==false)
 				{
@@ -90,20 +80,8 @@
 				}
 				else
 				{
-					$SQL_Query="INSERT INTO doctor VALUES ('$doctor_id','$name','n','$login_id')";
-					$result=mysql_query($SQL_Query);
-					if($result==false)
-					{
-							echo mysql_error();
-							$SQL_Query="delete from login where login_id='$login_id'";
-							$result=mysql_query($SQL_Query);
-
-					}
-					else
-					{
-							echo "Registered Doctor Successfully";
-					}
+							echo "Register Dhobi Successfully";
 				}
-
+			
 		}
 ?>
