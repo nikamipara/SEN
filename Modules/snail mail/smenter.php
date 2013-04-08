@@ -1,42 +1,82 @@
 <?php
-function Connect_TO_Server()
-		{
-			$usernamedb="root";
-			$passworddb="nikunj";
-			$server=$_SERVER['SERVER_ADDR'];
-			$db_handle=mysql_connect($server,$usernamedb,$passworddb);
-			return $db_handle; 
-		}
-		function Connect_TO_DB()
-		{
-			$database="sen";
-			$db_found = mysql_select_db($database);
-			if(!$db_found)
+
+require("phpmailer/class.phpmailer.php");
+require("phpmailer/class.smtp.php");
+function createmail( $userid , $sentby)
+{	
+require_once("db.php");
+	$mail = new PHPMailer(); 
+$mail->IsSMTP();
+$mail->SMTPAuth = true; // turn on SMTP authentication
+$mail->Username = "daiicthor@gmail.com"; // SMTP username
+$mail->Password = "horofdaiict"; // SMTP password
+$mail->SMTPKeepAlive = true;                  // SMTP connection will not close after each email sent
+
+			
+			$webmaster_email = "da_hostel@daiict.ac.in"; //Reply to this email ID
+																					$webmaster_name="admin";
+
+			$mail->From = $webmaster_email;
+
+			$mail->FromName = $webmaster_name;
+
+			$mail->AddReplyTo($webmaster_email,$webmaster_name);
+
+														
+			$mail->IsHTML(true); // send as HTML
+			
+
+			$mail->WordWrap = 50; // set word wrap									//only suportsmax 500 users
+
+																					//$mail->AddAttachment("/var/tmp/file.tar.gz"); // attachment
+
+																					//$mail->AddAttachment("/tmp/image.jpg", "new.jpg"); // attachment
+
+			
+			$mail->Subject ='You have a new snail mail email. ';
+			$mail->Body = " you have a new snail mail  from". $sentby ;			
+			
+
+
+	
+				$mail->AddAddress($post['email'],$userid);
+				
+				
+	
+	if(!$mail->Send())
 			{
-				print "error in connection to database";
+			echo "Mailer Error: " . $mail->ErrorInfo;
 			}
-			echo nl2br("\n");
-		}
-		function Close_To_Server($db_handle)
-		{
-			mysql_close($db_handle);
-		}
-?>
+			else
+			{
+			echo "Message has been sent";
+			}
+	
+}
+
+	 
+
+		?>
+        
+        
+        
 <?php
+
 //include ('sen/databasefun.php');
+
+session_start();
+require_once("db.php");
+if(isset($_SESSION['access'])&&($_SESSION['access']=='4'))
+{
 $db=Connect_To_Server();
-$db_found=Connect_To_DB();
-?>
-<?php
-	
-	
+$db_found=Connect_To_DB();	
 $date1 = new DateTime();
 $date = $date1->format('Y-m-d');
 $time = $date1->format('H:i:s');
 
 $userid= $_POST['id'];
 $sentby1 = $_POST['sentby'];
-
+$emailid;
 //echo $date . $time . $userid . $sentby1 . gettype($_POST['sentby']); 
 
 $query1= "INSERT INTO `snail_mail`(`date`, `time`, `id`, `sentby`) VALUES (NOW() , NOW(), $userid , '' '.$sentby1.' '') ";
@@ -52,11 +92,16 @@ $result = mysql_query($query1);
 					echo 'snail mail update added successfully for '. $userid;
 				}
 
-?>
-<?php
 //5. close connection
 
 mysql_close($db);
-
+}
+else 
+		{
+			$_SESSION['access']=0;
+			session_destroy();
+			header('location:/sen/Modules/login.php');
+			echo "invalid Login";
+		}
 
 ?>

@@ -1,31 +1,34 @@
 <?php
-function Connect_TO_Server()
-		{
-			$usernamedb="root";
-			$passworddb="nikunj";
-			$server=$_SERVER['SERVER_ADDR'];
-			$db_handle=mysql_connect($server,$usernamedb,$passworddb);
-			return $db_handle; 
-		}
-		function Connect_TO_DB()
-		{
-			$database="sen";
-			$db_found = mysql_select_db($database);
-			if(!$db_found)
-			{
-				print "error in connection to database";
-			}
-			echo nl2br("\n");
-		}
-		function Close_To_Server($db_handle)
-		{
-			mysql_close($db_handle);
-		}
-?>
-<?php
+// lf delete for admin
+
+session_start();
+if(!isset($_SESSION['access']) or $_SESSION['access']!= 4)
+{   
+	$_SESSION['access']=0;
+	session_destroy();
+	header('location:/sen/Modules/login.php');
+}
+
+require_once ('db.php');
 //include ('sen/databasefun.php');
 $db=Connect_To_Server();
 $db_found=Connect_To_DB();
+
+if(isset($_POST['SUBMIT20']))
+	{
+			$lfid1= $_POST['delete_radio'];
+			$query1= "DELETE from `lost_found` WHERE lost_found_id = $lfid1 ";
+			$result = mysql_query($query1);
+
+				if($result==false)
+				{
+						echo 'some thing went wrong !!!!!!!!'. mysql_error();
+				}
+				else
+				{	
+						echo 'lf deleted successfully ';
+				}
+	}
 ?>
 <?php
 /// this page is for getting  snail mail at user side.......................................................
@@ -54,6 +57,7 @@ if(!$result){
 //while($row = mysql_fetch_array($result)){
 //	echo $row["id"]. " ". $row["date"]."". $row["time"]. " ". $row["title"]. "<br/>";
 
+	echo "<form action='lfdeladmin.php' method='post'>";
 echo '<table border="1">';
 echo "<tr>";
 	echo "<td>Type</td>";
@@ -64,39 +68,37 @@ echo "<tr>";
 	echo "<td>Title</td>";
 	echo "<td>Place</td>";
 	echo "<td>Object Details</td>";
-	
-while($row = mysql_fetch_array($result)){
-	//print_r($row);
-	echo "<tr>";
-	if($row["type"]){
-		echo "<td> Found</td>";
+echo "</td>";
+	while($row = mysql_fetch_array($result)){
+				//print_r($row);
+				$temp = $row["lost_found_id"];
+				echo "<tr>";
+				if($row["type"]){
+					echo "<td> Found</td>";
+				}
+				else
+				{
+					echo "<td>Lost</td>";
+				}
+				
+				echo "<td>" . $row["lost_found_id"]."</td>";
+				echo "<td>" . $row["date"] . "</td>";
+				echo "<td>" . $row["time"] . "</td>";
+				echo "<td>" . $row["id"] . "</td>";
+				echo "<td>" . $row["Title"] . "</td>";
+				echo "<td>" . $row["place"] . "</td>";
+				echo "<td>" . $row["object_details"] . "</td>";
+				echo "<td> <input type='radio' name=delete_radio value='$temp'> </td>";
+						
+				
 	}
-	else
-		echo "<td>Lost</td>";
-	echo "<td>" . $row["lost_found_id"] . "</td>";
-	echo "<td>" . $row["date"] . "</td>";
-	echo "<td>" . $row["time"] . "</td>";
-	echo "<td>" . $row["id"] . "</td>";
-	echo "<td>" . $row["Title"] . "</td>";
-	echo "<td>" . $row["place"] . "</td>";
-	echo "<td>" . $row["object_details"] . "</td>";
-	
-	echo "<br/>";
-	
-}
-echo "</table>"
-	
+echo "</table>";
+echo "<input type='submit' name='SUBMIT20' value='delete'>";
+echo"</form>";
 
-// this is  how admin can update status of snamil mail.
-
+	
 ?>
-<form action="lfdel1.php" method="post">
-	<b>Enter lf  id that you want to delete</b>
-	<input type="text" name="lfid" size=10 /><br />
-    <input type="submit" />
 
-
-</form>
 </body>
 </html>
 <?php

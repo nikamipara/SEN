@@ -1,29 +1,16 @@
 <?php
-function Connect_TO_Server()
-		{
-			$usernamedb="root";
-			$passworddb="nikunj";
-			$server=$_SERVER['SERVER_ADDR'];
-			$db_handle=mysql_connect($server,$usernamedb,$passworddb);
-			return $db_handle; 
-		}
-		function Connect_TO_DB()
-		{
-			$database="sen";
-			$db_found = mysql_select_db($database);
-			if(!$db_found)
-			{
-				print "error in connection to database";
-			}
-			echo nl2br("\n");
-		}
-		function Close_To_Server($db_handle)
-		{
-			mysql_close($db_handle);
-		}
-?>
-<?php
+//this is for admin  gets input from smrec ......
+/*
+require_once ('db.php');
+session_start();
+if(!isset($_SESSION['access']) or $_SESSION['access']!= 4)
+{   
+	$_SESSION['access']=0;
+	session_destroy();
+	header('location:/sen/Modules/login.php');
+}*/
 //include ('sen/databasefun.php');
+require_once ('db.php');
 $db=Connect_To_Server();
 $db_found=Connect_To_DB();
 ?>
@@ -31,7 +18,7 @@ $db_found=Connect_To_DB();
 	//1 create database connection
 	
 	
-$smid1= $_POST['smid'];
+$smid1= $_POST['received_radio'];
 
 
 

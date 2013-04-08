@@ -1,34 +1,41 @@
 <?php
-function Connect_TO_Server()
-		{
-			$usernamedb="root";
-			$passworddb="nikunj";
-			$server=$_SERVER['SERVER_ADDR'];
-			$db_handle=mysql_connect($server,$usernamedb,$passworddb);
-			return $db_handle; 
-		}
-		function Connect_TO_DB()
-		{
-			$database="sen";
-			$db_found = mysql_select_db($database);
-			if(!$db_found)
-			{
-				print "error in connection to database";
-			}
-			echo nl2br("\n");
-		}
-		function Close_To_Server($db_handle)
-		{
-			mysql_close($db_handle);
-		}
-?>
-<?php
-//include ('sen/databasefun.php');
+//for admin refers smrec1.php  and get inputs form smrecform
+require_once ('db.php');
+/*
+session_start();
+if(!isset($_SESSION['access']) or $_SESSION['access']!= 4)
+{   
+	$_SESSION['access']=0;
+	session_destroy();
+	header('location:/sen/Modules/login.php');
+}
+*/
 $db=Connect_To_Server();
 $db_found=Connect_To_DB();
-?>
-<?php
-/// this page is for getting  snail mail at user side.......................................................
+
+if(isset($_POST['SUBMIT20']))
+	{
+		$smid1= $_POST['received_radio'];
+
+
+
+		$query1= "UPDATE `snail_mail` SET `received_status`= true WHERE snail_mail_id = $smid1  ";
+		//$query1="INSERT INTO `snail_mail`(`date`, `time`, `id`, `sentby`) VALUES (2013-03-27 , '06:50:50' , '201001199' ,'spped postr') ";
+		
+		$result = mysql_query($query1);
+				if($result==false)
+				{
+						echo 'some thing went wrong !!!!!!!!'. mysql_error();
+				}
+				else
+				{	
+					echo 'snail mail Received update added successfully for '. $smid1;
+					echo '</html>';
+				}
+
+	}
+
+/// this page is for getting  snail mail at admin ......................................................
  //by nikunj amipara,
 	
 
@@ -54,6 +61,7 @@ $result = mysql_query("SELECT * FROM snail_mail where id= $userid and received_s
 if(!$result){
 		die("database selection failed:".mysql_error());
 	}
+echo "<form action='smrec1.php' method='post'>";
 //4. use returned data
 echo '<table border="1">';
 echo "<tr>";
@@ -63,13 +71,14 @@ echo "<tr>";
 	echo "<td>sentby</td>";
 	
 while($row = mysql_fetch_array($result)){
+	$temp = $row["snail_mail_id"] ;
 	echo "<tr>";
 	echo "<td>" . $row["snail_mail_id"] . "</td>";
 	echo "<td>" . $row["date"] . "</td>";
 	echo "<td>" . $row["time"] . "</td>";
 	echo "<td>" . $row["sentby"] ."</td>";
+	echo "<td> <input type='radio' name=received_radio value='$temp'> </td>";
 	
-	echo "<br/>";
 	
 	
 	
@@ -79,17 +88,12 @@ while($row = mysql_fetch_array($result)){
 }
 echo "</table>";
 echo '<br/>';
+echo "<input type='submit' name='SUBMIT20' value='Received'>";
+echo"</form>";
 
 // this is  how admin can update status of snamil mail.
 
 ?>
-<form action="smrec1.php" method="post">
-	<b>Enter snail mail id for which u want to update status to received</b>
-	<input type="text" name="smid" size=10 /><br />
-    <input type="submit" />
-
-
-</form>
 </body>
 </html>
 <?php
