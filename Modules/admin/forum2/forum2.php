@@ -7,9 +7,10 @@
 	<h3>forum</h3>
 	 <?php
 	 $admin=0; 
+	 session_start();
 	if(isset($_SESSION['access'])&& $_SESSION['access']==4)
 	{
-	$admin=1;
+		$admin=1;
 	 }
 	 ?>
  
@@ -64,10 +65,6 @@
 		}
 
 	 ?>
-	 <?php
-	if($admin==1)
-				{ echo "<input type='submit' value='delete'></form>";}
-	 ?>
 	 //saare label laga lena
 <form action=postprocess2.php method="post">
 			<input type="text" name="subject">
@@ -76,6 +73,12 @@
 			<input type="textarea"  name="post">
 			<input type="hidden" name="lallan" value="top">
 			<input type="submit" value='post'>
+			 <?php
+				if($admin==1)
+				{ echo "<input type='submit' value='delete'></form>";}
+				
+	 ?>
+	
 			</form>
 	</body>
 </html>

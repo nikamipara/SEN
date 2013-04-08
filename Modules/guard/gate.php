@@ -282,32 +282,54 @@
 		}
 		function laptop_in($id)
 		{
-					
-				$SQL_Query="update laptop_registration set present_status='i' where resident_id='$id'";
-				$result=mysql_query($SQL_Query);
 				
+				$date_time=date('Y-m-d h:i:s ', time());
+				$SQL_Query="insert into gate_laptop_entry (resident_id,entry_time_date) values('$id','$date_time') ";
+				$result=mysql_query($SQL_Query);
 				if($result==false)
 				{
 						echo mysql_error();
+						if(mysql_errno()=='1064')
+						{
+							echo "The student with this id has not registered his laptop";
+						}
 				}
-				
 				else
 				{
-						
-						echo "in Successful";
+						$SQL_Query="update laptop_registration set present_status='i' where resident_id='$id'";
+						$result=mysql_query($SQL_Query);
+						if($result==true)
+						{
+							echo "in Successful";
+						}
 				}
 		}
 		function laptop_out($id)
 		{
-				$SQL_Query="update laptop_registration set present_status='o' where resident_id='$id'";
-				$result=mysql_query($SQL_Query);
+				
+				$SQL_Query="select resident_id from gate_laptop_entry where resident_id='$id' and exit_time_date is NULL";
+				$result=mysql_query($SQL_Query);			
 				if($result==false)
 				{
 						echo mysql_error();
 				}
 				else
 				{
-						echo "out Successful";
+				
+					$out=mysql_fetch_assoc($result);
+					if($out['resident_id']=="")
+					{
+						echo "Your entry was not found . Please first Enter and then Exit";
+					}		
+					else
+					{
+							$date_time=date('Y-m-d h:i:s ', time());
+							$SQL_Query="update gate_laptop_entry set exit_time_date='$date_time' where resident_id='$id' and exit_time_date is NULL";
+							$result=mysql_query($SQL_Query);
+							$SQL_Query="update laptop_registration set present_status='o' where resident_id='$id'";
+							$result=mysql_query($SQL_Query);
+							echo "out Successful";
+					}
 				}
 		}
 		function dhobi_status_in($dhobi_id)

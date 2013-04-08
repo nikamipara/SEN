@@ -15,8 +15,9 @@
 				$id=$_POST['id'];
 				$name=$_POST['name'];
 				$wing=$_POST['wing'];
-				$floor=$_POST['floor'];
 				$room=$_POST['room'];
+				$floor=substr($room,0,1);
+				$floor=$floor-1;
 				$contact=$_POST['contact'];
 				$gender=$_POST['genders'];
 				$batch=$_POST['batch'];
@@ -57,12 +58,6 @@
 			<option value="h">H</option>
 			<option value="j">J</option>
 			<option value="k">K</option>
-			</select>
-		<br>
-		Floor: <select name="floor">
-			<option value="0">0</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
 			</select>
 		<br>
 		Room Number: <INPUT TYPE="NUMBER"  NAME="room">
@@ -136,6 +131,14 @@
 			else if($rowt['count']>1)
 			{
 				echo "There cant be more than 2 residents residing in one room";
+			}
+			else if($floor>2||$floor<0)
+			{
+					echo "Floor or room value invalid";
+			}
+			else if(substr($room,1,2)>20||substr($room,1,2)<0)
+			{
+				echo "Invalid Room";
 			}
 			else
 			{

@@ -24,7 +24,7 @@
 		{
 			$_SESSION['access']=0;
 			session_destroy();
-			header('location:/sen/Modules/login.php');
+			header('location:/sen/Modules/login/login.php');
 			echo "invalid Login";
 		}
 		
