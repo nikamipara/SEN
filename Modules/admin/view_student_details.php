@@ -121,7 +121,7 @@
 		}
 		function view_all_residents()
 		{
-				$SQL_Query="select * from residents ";
+				$SQL_Query="select * from residents order by wing";
 				$result=mysql_query($SQL_Query);
 				
 				if($result==false)
