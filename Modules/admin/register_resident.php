@@ -158,11 +158,6 @@
 					{
 							$SQL_Query="delete from login where login_id='$id'";
 							$result=mysql_query($SQL_Query);
-						
-							if(mysql_errno()==0)
-							{
-									echo "2 Students cannot have the same phone number";
-							}
 					}
 					else
 					{

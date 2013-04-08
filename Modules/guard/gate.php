@@ -9,7 +9,6 @@
 			{
 						header('location:/sen/Modules/Links_temp/guard_links.php');
 			}
-				
 			if(isset($_POST['SUBMIT1']))
 			{
 			
@@ -40,11 +39,28 @@
 			}
 			if(isset($_POST['SUBMIT4']))
 			{
-			
 				$resident_id=$_POST['resident_id'];
 				$db_handle=Connect_To_Server();
 				$db_found=Connect_To_DB();
 				in_leave($resident_id);
+				Close_To_Server($db_handle);
+			}
+			if(isset($_POST['SUBMIT20']))
+			{
+				$resident_id=$_POST['resident_id'];
+				$db_handle=Connect_To_Server();
+				$db_found=Connect_To_DB();
+				$rid=$_SESSION['rid'];
+				laptop_in($rid);
+				Close_To_Server($db_handle);
+			}
+			if(isset($_POST['SUBMIT21']))
+			{
+				$resident_id=$_POST['resident_id'];
+				$db_handle=Connect_To_Server();
+				$db_found=Connect_To_DB();
+				$rid=$_SESSION['rid'];
+				laptop_out($rid);
 				Close_To_Server($db_handle);
 			}
 		}
@@ -54,7 +70,10 @@
 			session_destroy();
 			header('location:/sen/Modules/login/login.php');
 			echo "invalid Login";
-		}
+		}	
+	
+		
+		
 		
 ?>
 </HEAD>
@@ -76,7 +95,36 @@
 		<br>
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT5" VALUE="Taking Laptop Out">
 		<br>
+			<?php
+		
+							
+					if(isset($_POST['SUBMIT5']))
+					{
+						$resident_id=$_POST['resident_id'];
+						$db_handle=Connect_To_Server();
+						$db_found=Connect_To_DB();
+						$in_out='out';
+						view_laptop_details($resident_id,$in_out);
+						Close_To_Server($db_handle);
+					}
+		
+		
+			?>
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT6" VALUE="Bringing Laptop In">
+		<br>
+			<?php
+		
+							
+					if(isset($_POST['SUBMIT6']))
+					{
+						$resident_id=$_POST['resident_id'];
+						$db_handle=Connect_To_Server();
+						$db_found=Connect_To_DB();
+						$in_out='in';
+						view_laptop_details($resident_id,$in_out);
+						Close_To_Server($db_handle);
+					}
+			?>
 		<br>
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT7" VALUE="Go Back">
 	</FORM>	
@@ -188,6 +236,74 @@
 							echo "Successful";
 						}
 					}
+				}
+		}
+		
+		function view_laptop_details($resident_id,$in_out)
+		{
+				
+				$SQL_Query="select name,name_of_manufacturer,invoice_number from laptop_registration join residents on laptop_registration.resident_id=residents.id where resident_id='$resident_id' ";
+				$result=mysql_query($SQL_Query);
+				
+				if($result==false)
+				{
+						echo mysql_error();
+				}
+				else
+				{
+						echo "<FORM NAME='form3' METHOD='POST' ACTION='gate.php' >";
+						echo "<table border='1'>";
+						echo"<tr><td>Resident ID</td><td>Name</td><td>Laptop Invoice Number</td><td>Manufacturer</td>";
+						while($out=mysql_fetch_assoc($result))
+						{
+							$inv_no=$out['invoice_number'];
+							$name=$out['name'];
+							$nom=$out['name_of_manufacturer'];
+							echo "<tr><td>$resident_id</td><td>$name</td><td>$inv_no</td><td>$nom</td>";
+							echo "";
+						}
+						echo"</table>";
+						echo "<br>";
+						if($in_out=='in')
+						{
+							echo "<INPUT TYPE='SUBMIT' NAME='SUBMIT20' VALUE='Confirm'>";
+						}
+						if($in_out=='out')
+						{
+							echo "<INPUT TYPE='SUBMIT' NAME='SUBMIT21' VALUE='Confirm'>";
+						}	
+						echo "<br>";
+						echo "</form>";
+						$_SESSION['rid']=$resident_id;
+						
+				}
+		}
+		function laptop_in($id)
+		{
+					
+				$SQL_Query="update laptop_registration set present_status='i' where resident_id='$id'";
+				$result=mysql_query($SQL_Query);
+				
+				if($result==false)
+				{
+						echo mysql_error();
+				}
+				else
+				{
+						echo "in Successful";
+				}
+		}
+		function laptop_out($id)
+		{
+				$SQL_Query="update laptop_registration set present_status='o' where resident_id='$id'";
+				$result=mysql_query($SQL_Query);
+				if($result==false)
+				{
+						echo mysql_error();
+				}
+				else
+				{
+						echo "out Successful";
 				}
 		}
 		
