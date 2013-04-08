@@ -83,8 +83,8 @@ $mail->SMTPKeepAlive = true;                  // SMTP connection will not close 
 																					//$mail->AddAttachment("/tmp/image.jpg", "new.jpg"); // attachment
 
 			
-			$mail->Subject ='You have a new snail mail email. ';
-			$mail->Body = " you have a new snail mail  from". $sentby ;			
+			$mail->Subject ='You have a new snail mail. ';
+			$mail->Body = " you have a new snail mail  from   ". $sentby ;			
 			
 
 
