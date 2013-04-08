@@ -1,27 +1,18 @@
-
 <html>
 	<head>
 		<title>Forum </title>
-		
 	</head>
 	
 	<body>
 	<h3>forum</h3>
-	
 	 <?php
 	 $admin=0; 
-	 session_start();
-	 echo "hello";
-	 echo $_SESSION['access'];
-	 if(isset($_SESSION['access'])&& $_SESSION['access']==4)
-	 {
-			$admin=1;
-	 }
-	 else
-	 {
-		echo "dfaf";
+	if(isset($_SESSION['access'])&& $_SESSION['access']==4)
+	{
+	$admin=1;
 	 }
 	 ?>
+ 
 	 <?php
 		require_once("config.php");
 		$link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
@@ -79,13 +70,12 @@
 	 ?>
 	 //saare label laga lena
 <form action=postprocess2.php method="post">
-			Subject :<input type="text" name="subject">
-			name<input type="text" name="name" >
+			<input type="text" name="subject">
+			<input type="text" name="name" >
 			
-			post:<input type="textarea"  name="post">
+			<input type="textarea"  name="post">
 			<input type="hidden" name="lallan" value="top">
 			<input type="submit" value='post'>
-			
 			</form>
 	</body>
 </html>

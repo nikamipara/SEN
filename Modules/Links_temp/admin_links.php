@@ -71,6 +71,11 @@
 						header('location:/sen/Modules/admin/register_dhobi.php');
 			
 				}
+				if(isset($_POST['SUBMIT15']))
+				{
+						header('location:/sen/Modules/admin/forum2/forum2.php');
+			
+				}
 				if(isset($_POST['SUBMIT9']))
 				{
 						
@@ -122,6 +127,8 @@
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT13" VALUE="View Laptop Registrations">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT14" VALUE="Registrations Dhobi">
+				<br>
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT15" VALUE="Manage forum">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT9" VALUE="Sign out">
 				<br>

@@ -111,7 +111,7 @@
 		
 			?>
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT6" VALUE="Bringing Laptop In">
-		<br>
+		
 			<?php
 		
 							
@@ -125,12 +125,12 @@
 						Close_To_Server($db_handle);
 					}
 			?>
+		<?php view_form(); ?>
 		<br>
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT7" VALUE="Go Back">
 		
 	</FORM>	
-	<?php view_form(); ?>
-
+	
 </BODY>
 
 </HTML>
@@ -290,6 +290,7 @@
 				{
 						echo mysql_error();
 				}
+				
 				else
 				{
 						
@@ -349,7 +350,7 @@
 				}
 				else
 				{
-					echo "<FORM NAME='form3' METHOD='POST' ACTION='gate.php' >";
+				//	echo "<FORM NAME='form3' METHOD='POST' ACTION='gate.php' >";
 					echo  "	Name: <select name='dhobi_id'>";
 				
 					while($out=mysql_fetch_assoc($result))
@@ -364,7 +365,7 @@
 					echo "<input type='SUBMIT' NAME='SUBMIT10' VALUE='Dhobi Enter' >";
 					echo "<br>";
 					echo "<input type='SUBMIT' NAME='SUBMIT11' VALUE='Dhobi Exit' >";
-					echo "</FORM>";
+					//echo "</FORM>";
 				}
 		}
 		
