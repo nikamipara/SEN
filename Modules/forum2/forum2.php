@@ -6,8 +6,8 @@
 	<body>
 	<h3>forum</h3>
 	 <?php
-	 $admin=1; 
-	if(isset($_SESSION['acess'])&& $_SESSION['acess']==4)
+	 $admin=0; 
+	if(isset($_SESSION['access'])&& $_SESSION['access']==4)
 	{
 	$admin=1;
 	 }
