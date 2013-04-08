@@ -60,7 +60,11 @@
 			<option value="k">K</option>
 			</select>
 		<br>
-		Floor : <INPUT TYPE="TEXT"  NAME="floor">
+		Floor: <select name="floor">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			</select>
 		<br>
 		Room Number: <INPUT TYPE="NUMBER"  NAME="room">
 		<br>
@@ -152,11 +156,13 @@
 					$result=mysql_query($SQL_Query);
 					if($result==false)
 					{
-							echo mysql_error();
 							$SQL_Query="delete from login where login_id='$id'";
 							$result=mysql_query($SQL_Query);
 						
-							echo mysql_error();
+							if(mysql_errno()==0)
+							{
+									echo "2 Students cannot have the same phone number";
+							}
 					}
 					else
 					{

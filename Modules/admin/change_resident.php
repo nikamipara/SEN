@@ -152,6 +152,7 @@
 					if($result==false)
 					{
 						echo mysql_error();
+						echo mysql_errno();
 					}
 					else
 					{

@@ -90,7 +90,7 @@
 				}
 				else
 				{
-					$SQL_Query="INSERT INTO doctor VALUES ('$doctor_id','name','n','$login_id')";
+					$SQL_Query="INSERT INTO doctor VALUES ('$doctor_id','$name','n','$login_id')";
 					$result=mysql_query($SQL_Query);
 					if($result==false)
 					{
