@@ -387,7 +387,7 @@
 					echo "<input type='SUBMIT' NAME='SUBMIT10' VALUE='Dhobi Enter' >";
 					echo "<br>";
 					echo "<input type='SUBMIT' NAME='SUBMIT11' VALUE='Dhobi Exit' >";
-					//echo "</FORM>";
+					
 				}
 		}
 		
