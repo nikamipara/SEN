@@ -56,6 +56,7 @@
 						header('location:/sen/Modules/admin/reset_password.php');
 			
 				}
+				
 				if(isset($_POST['SUBMIT12']))
 				{
 						header('location:/sen/Modules/admin/view_student_details.php');
@@ -89,6 +90,11 @@
 				if(isset($_POST['SUBMIT18']))
 				{
 						header('location:/sen/Modules/admin/view_gate_evening.php');
+			
+				}
+				if(isset($_POST['SUBMIT19']))
+				{
+						header('location:/sen/Modules/admin/chage_laptop.php');
 			
 				}
 				if(isset($_POST['SUBMIT9']))
@@ -151,7 +157,8 @@
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT18" VALUE="View Gate Entries after 7">
 				<br>
-				
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT19" VALUE="Change Laptop">
+				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT9" VALUE="Sign out">
 				<br>
 			</FORM>
