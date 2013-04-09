@@ -16,7 +16,7 @@
 				$program=$_POST['program'];
 				$db_handle=Connect_To_Server();
 				$db_found=Connect_To_DB();
-				change_resident($batch,$program);
+				delete_batch($batch,$program);
 				Close_To_Server($db_handle);
 			}
 		}
@@ -33,7 +33,7 @@
 
 <BODY>
 	<FORM NAME="form1" METHOD="POST" ACTION="delete_batch.php" >
-		In case there is no change in a field Enter "unchanged"
+
 		Program   : <INPUT TYPE="TEXT" NAME="program"> 
 		<br>
 		Batch : <INPUT TYPE="NUMBER"  NAME="Batch">
@@ -73,7 +73,7 @@
 		{
 			mysql_close($db_handle);
 		}
-		function change_resident($batch,$program);
+		function delete_batch($batch,$program)
 		{
 			$SQL_Query="delete from resident where batch='$batch' and program='$program'";
 			$result=mysql_query($SQL_Query);

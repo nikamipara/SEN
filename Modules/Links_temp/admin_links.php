@@ -97,6 +97,11 @@
 						header('location:/sen/Modules/admin/chage_laptop.php');
 			
 				}
+				if(isset($_POST['SUBMIT21']))
+				{
+						header('location:/sen/Modules/admin/delete_batch.php');
+			
+				}
 				if(isset($_POST['SUBMIT9']))
 				{
 						
@@ -158,6 +163,8 @@
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT18" VALUE="View Gate Entries after 7">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT19" VALUE="Change Laptop">
+				<br>
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT21" VALUE="Delete batch">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT9" VALUE="Sign out">
 				<br>
