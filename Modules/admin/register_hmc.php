@@ -40,7 +40,7 @@
 	
 		Login ID   : <INPUT TYPE="TEXT" NAME="login_id"> 
 		<br>
-		ID: <INPUT TYPE="TEXT"  NAME="resident_id">
+		Student ID: <INPUT TYPE="TEXT"  NAME="resident_id">
 		<br>
 		Password : <INPUT TYPE="password"  NAME="password">
 		<br>

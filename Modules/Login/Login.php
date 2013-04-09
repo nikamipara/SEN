@@ -5,17 +5,7 @@
 		
 		require("phpmailer/class.phpmailer.php");
 		require("phpmailer/class.smtp.php");
-		if(isset($_POST['SUBMIT1']))
-		{
-			
-			$username=$_POST['username'];
-			$password=$_POST['password'];
-			$db_handle=Connect_To_Server();
-			$db_found=Connect_To_DB();
-			login($username,$password);
-			
-			Close_To_Server($db_handle);
-		}
+		
 		if(isset($_POST['SUBMIT2']))
 		{
 			
@@ -42,7 +32,17 @@
 		<br>
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="LOGIN">
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Forgot Password">
-		
+		<?php
+		if(isset($_POST['SUBMIT1']))
+		{
+			$username=$_POST['username'];
+			$password=$_POST['password'];
+			$db_handle=Connect_To_Server();
+			$db_found=Connect_To_DB();
+			login($username,$password);
+			Close_To_Server($db_handle);
+		}
+		?>
 	</FORM>	
 	
 

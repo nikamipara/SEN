@@ -58,6 +58,8 @@
 				
 			}
 			echo "</table>";
+			if($admin==1)
+				{ echo "<input type='submit' value='delete'></form>";}
 		}
 		else
 		{
@@ -65,6 +67,8 @@
 		}
 
 	 ?>
+	 			
+	
 	 //saare label laga lena
 <form action=postprocess2.php method="post">
 			<input type="text" name="subject">
@@ -74,8 +78,6 @@
 			<input type="hidden" name="lallan" value="top">
 			<input type="submit" value='post'>
 			 <?php
-				if($admin==1)
-				{ echo "<input type='submit' value='delete'></form>";}
 				
 	 ?>
 	

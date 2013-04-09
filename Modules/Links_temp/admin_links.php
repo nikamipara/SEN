@@ -76,6 +76,16 @@
 						header('location:/sen/Modules/admin/forum2/forum2.php');
 			
 				}
+				if(isset($_POST['SUBMIT16']))
+				{
+						header('location:/sen/Modules/admin/view_laptop_gate_entry.php');
+			
+				}
+				if(isset($_POST['SUBMIT17']))
+				{
+						header('location:/sen/Modules/admin/view_gate_leave.php');
+			
+				}
 				if(isset($_POST['SUBMIT9']))
 				{
 						
@@ -129,6 +139,10 @@
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT14" VALUE="Registrations Dhobi">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT15" VALUE="Manage forum">
+				<br>
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT16" VALUE="View Laptop Entries">
+				<br>
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT17" VALUE="View Gate Entries">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT9" VALUE="Sign out">
 				<br>

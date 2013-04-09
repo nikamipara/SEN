@@ -11,16 +11,13 @@
 	 <?php
 	 $admin=0; 
 	 session_start();
-	 echo "hello";
-	 echo $_SESSION['access'];
+	 //echo "hello";
+	 //echo $_SESSION['access'];
 	 if(isset($_SESSION['access'])&& $_SESSION['access']==4)
 	 {
 			$admin=1;
 	 }
-	 else
-	 {
-		echo "dfaf";
-	 }
+	
 	 ?>
 	 <?php
 		require_once("config.php");
