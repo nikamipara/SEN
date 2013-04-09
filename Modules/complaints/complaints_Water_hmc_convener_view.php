@@ -15,7 +15,7 @@ require_once ('db.php');
 $db=Connect_To_Server();
 $db_found=Connect_To_DB();
 
-  $ty = "Electrical";
+  $ty = "Water";
 	
 
 ?>
