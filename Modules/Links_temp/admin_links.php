@@ -86,6 +86,11 @@
 						header('location:/sen/Modules/admin/view_gate_leave.php');
 			
 				}
+				if(isset($_POST['SUBMIT18']))
+				{
+						header('location:/sen/Modules/admin/view_gate_evening.php');
+			
+				}
 				if(isset($_POST['SUBMIT9']))
 				{
 						
@@ -144,6 +149,9 @@
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT17" VALUE="View Gate Entries">
 				<br>
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT18" VALUE="View Gate Entries after 7">
+				<br>
+				
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT9" VALUE="Sign out">
 				<br>
 			</FORM>

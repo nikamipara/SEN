@@ -83,7 +83,7 @@
 	
 		Resident ID   : <INPUT TYPE="TEXT" NAME="resident_id"> 
 		<br>
-		Purpose (Only applicable if taking leave): <INPUT TYPE="TEXT" NAME="purpose"> 
+		Purpose (Only applicable if taking leave): <INPUT TYPE="TEXT" NAME="purpose" value="home"> 
 		<br>
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="Go Out After 7 P.M.">
 		<br>

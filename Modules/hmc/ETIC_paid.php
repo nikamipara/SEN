@@ -28,15 +28,33 @@
 			echo "invalid Login";
 		}
 		
+		$db_handle=Connect_To_Server();
+		$db_found=Connect_To_DB();
+		$SQL_Query="select * from ETIC ";
+		$result=mysql_query($SQL_Query);
+		echo "<table border='1'>";
+		echo"<tr><td>Resident ID</td><td>Newspaper Name</td><td>Paid</td><td> set paid</td></tr>";
+		echo"<FORM NAME='form1' METHOD='POST' ACTION='ETIC_paid.php' >";
+		while($out=mysql_fetch_assoc($result))
+		{
+				$id=$out['id'];
+				$newspaper=$out['newpaper'];
+				$paid=$out['paid'];
+				echo "<tr><td>$id</td><td>$newspaper</td><td>$paid</td>";
+				echo "<td><INPUT TYPE='RADIO' NAME='id_sub' value=$id></td></tr>";
+				
+		}
+		echo"</table>";
+		echo "<INPUT TYPE='SUBMIT' NAME='SUBMIT1' VALUE='Paid'>";
+		echo"</form>";
+		
+		Close_To_Server($db_handle);
+		
 ?>
 </HEAD>
 
 <BODY>
 	<FORM NAME="form1" METHOD="POST" ACTION="ETIC_paid.php" >
-		Subscriber ID :<INPUT TYPE="text" NAME ="id_sub" >
-		<br>
-		<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="Paid">
-		<br>
 		<INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Go Back">
 	</FORM>	
 	
