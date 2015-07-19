@@ -1,0 +1,197 @@
+
+body {
+  margin:0.5em;
+  padding:0
+}
+h1.main,
+h2.main,
+h3.main,
+h4.main,
+h5.main,
+h6.main {
+  margin-left:1em;
+  text-align:left
+}
+
+td#middle-column tr.section td.content,
+td#middle-column tr.section td.side {
+  border-style: none;
+}
+
+.forumheaderlist {
+  width:90%;
+  margin-left:auto;
+  margin-right:auto
+}
+.forumheaderlist .header {
+  border-left:1px solid;
+  border-right:1px solid
+}
+
+
+.mod-resource #content {
+  margin-top:1px
+}
+body {
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size:100%
+}
+th {
+  font-weight:bold
+}
+a:link,
+a:visited {
+  text-decoration:none
+}
+a:hover {
+  text-decoration:underline
+}
+a.autolink {
+  font-size:100% !important;
+}
+a.autolink:hover {
+  text-decoration:none;
+  cursor:help
+}
+h1.main,
+h2.main,
+h3.main,
+h4.main,
+h5.main,
+h6.main {
+  font-weight:bold
+}
+h1 {
+  font-size:1.2em
+}
+h2 {
+  font-size:1em
+}
+h3 {
+  font-size:0.8em
+}
+h4 {
+  font-size:0.7em
+}
+pre code {
+  font-size:1.2em
+}
+.bold {
+  font-weight:bold
+}
+
+table.formtable tbody th {
+  font-weight:normal;
+  text-align:right
+}
+table.minicalendar {
+  font-size:0.85em
+}
+.forumpost,
+.forumheaderlist  {
+  font-size:0.8em
+}
+.forumnodiscuss {
+  font-weight:bold
+}
+.forumpost .topic .subject {
+  font-weight:bold
+}
+
+.forumpost .topic .author {
+  font-size:0.8em
+}
+.forumpost .commands,
+.forumpost .link {
+  font-size:0.9em
+}
+.forumheaderlist .discussion .lastpost {
+  font-size:0.7em
+}
+
+
+a:link {
+  color:#0F3C8C
+}
+a:visited {
+  color:#AE1107
+}
+a.dimmed:link,
+a.dimmed:visited {
+  color:#AAA
+}
+a:hover {
+  color:#F00
+}
+a.autolink {
+  background-color:#FFEDCE;
+  border-bottom:1px solid #A74;
+}
+body {
+  background-color:#FFF
+}
+h1.main,
+h2.main,
+h3.main,
+h4.main,
+h5.main,
+h6.main {
+  color:#999
+}
+h1.main:first-letter,
+h2.main:first-letter,
+h3.main:first-letter,
+h4.main:first-letter,
+h5.main:first-letter,
+h6.main:first-letter {
+  color:#FFB63B
+}
+-color: #DDD;
+}
+
+
+ 
+.mod-forum #content {
+  background-color:#F9FAFA
+}
+#mod-forum-user #content {
+  background-color:#EEE
+}
+.forumheaderlist,
+.forumpost {
+	
+  border-color:#DDD;
+  background-color:#FFF
+}
+.forumheaderlist .header {
+  background-color:#FFDA9D;
+  border-color:#FFB63B
+}
+.forumpost .content {
+  background:#FFF
+}
+.forumpost .content .posting
+{
+word-wrap: break-word;
+}
+.forumpost .left {
+  background:#EEE
+}
+.forumpost .topic {
+  border-bottom-color:#EEE
+}
+.forumpost .starter {
+  background-color:#FFDA9D
+}
+.forumheaderlist .discussion .starter {
+  background-color:#FFEDCE
+}
+.forumheaderlist td {
+  border-color:#FFF
+}
+.sideblock .post .head {
+  color:#555
+}
+.forumthread .unread {
+  background:#FFD991
+}

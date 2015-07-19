@@ -1,0 +1,377 @@
+body{margin:0; padding:0; font-size:13px; font-family:Georgia, "Times New Roman", Times, serif; color:#000;}
+
+.clear:after{content:"."; display:block; height:0; clear:both; visibility:hidden; line-height:0;}
+.clear{display:block; clear:both;}
+html[xmlns] .clear{display:block;}
+* html .clear{height:1%;}
+
+
+code{font-weight:normal; font-style:normal; font-family:Georgia, "Times New Roman", Times, serif;}
+
+.fl_left{float:left;}
+.fl_right{float:right;}
+
+img{margin:0; padding:0; border:none; line-height:normal; vertical-align:middle;}
+
+/*----------------------------------------------HTML 5 Overrides-------------------------------------*/
+
+footer, header, hgroup, nav, section{display:block; margin:0; padding:0;}
+table{margin:auto auto; border:3px solid black; border-collapse:collapse;}
+td, th{width:160px; border:3px solid black;}
+
+
+/* ----------------------------------------------Wrapper-------------------------------------*/
+
+div.wrapper{display:block; width:100%; margin:0; padding:0; text-align:center;}
+
+.row1{color:#000;}
+.row1 a{color:#000;}
+.row2{color:#000;}
+.row2 a{color:#000;}
+.row3, .row3 a{color:#919191;}
+
+/*----------------------------------------------Generalise-------------------------------------*/
+
+#header, #container, #footer{display:block; width:960px; margin:0 auto;}
+#whole{
+}
+nav ul{margin:0; padding:0; list-style:none;}
+
+h1, h2, h3, h4, h5, h6{margin:0; padding:0; font-size:16px; font-weight:bold; font-style:normal; line-height:normal; text-transform:uppercase;}
+
+address{font-style:normal;}
+
+form, fieldset, legend{margin:0; padding:0; border:none;}
+legend{display:none;}
+input, textarea, select{font-size:12px; font-family:Georgia,"Times New Roman",Times,serif;}
+
+/*----------------------------------------------Header-------------------------------------*/
+
+#header{padding:20px 0; background-color:#bfb8b8;}
+
+#header hgroup{float:left; margin:0 0 20px 0;}
+
+#header form{display:block; float:right; margin:-20px 0 0 0; padding:0;}
+#header form input{display:block; float:left; width:200px; margin:0; padding:5px; color:#C0BAB6; background-color:#232323; border:1px solid #666666;}
+#header form #sf_submit{display:block; float:right; width:70px; font-size:12px; font-weight:bold; text-transform:uppercase; color:#FFFFFF; background-color:#FF9900; border:none; cursor:pointer;}
+
+#header nav{display:block; width:100%; margin:0; padding:20px 0; color:#C0BAB6; background-color:#232323; clear:both;}
+#header nav ul{padding:0 20px;}
+#header nav li{display:inline; margin-right:25px; text-transform:uppercase;}
+#header nav li.last{margin-right:0;}
+#header nav li a{color:#C0BAB6; background-color:#232323;}
+#header nav li a:hover{color:#FF9900; background-color:#232323;}
+
+/*----------------------------------------------Content Area-------------------------------------*/
+
+#container{padding:30px 0px; width:960px; min-height:307px; text-align:left; background:#bfb8b8;}
+#container section{display:block; width:920px; margin:0 0 30px 20px; padding:0;}
+#container .last{margin:0;}
+#container .more{text-align:right;}
+/* ------Slider-----*/
+
+#container #slider{margin-bottom:50px;}
+#container #slider img{width:960px; height:280px;}
+
+/* ------Main Content-----*/
+#container #homepage{line-height:1.6em;}
+
+#container #homepage #services{}
+#container #homepage #services article{}
+#container #homepage #services figure{display:inline; float:left;}
+#container #homepage #services strong{float:left; margin:8px 0 0 10px; padding:0; font-size:14px; font-weight:bold; text-transform:uppercase;}
+#container #homepage #services p{display:block; margin:0; padding:5px 0 0 0; clear:both; line-height:1.6em;}
+
+/*----------------------------------------------Footer-------------------------------------*/
+
+#footer{padding:20px 0; background-color:#232323;}
+#footer p{margin:0; padding:0;}
+
+.cf:before,
+		.cf:after {
+		  content:"";
+		  display:table;
+		}
+		
+		.cf:after {
+		  clear:both;
+		}
+		
+		.cf {
+		  zoom:1;
+		}
+		  
+/*----------------------------------------------Footer end-------------------------------------*/			
+		
+		nav #login {
+		  border-right: 1px solid #ddd;
+		  -moz-box-shadow: 1px 0 0 #fff;
+		  -webkit-box-shadow: 1px 0 0 #fff;
+		  box-shadow: 1px 0 0 #fff;  
+		}
+		
+		nav #login-trigger
+		{
+		  display: inline-block;
+		  *display: inline;
+		  *zoom: 1;
+		  height: 25px;
+		  line-height: 25px;
+		  font-weight: bold;
+		  padding: 0 8px;
+		  text-decoration: none;
+		  color: #444;
+		  text-shadow: 0 1px 0 #fff; 
+		}
+		
+		
+		nav #login-trigger {
+		  -moz-border-radius: 3px 0 0 3px;
+		  -webkit-border-radius: 3px 0 0 3px;
+		  border-radius: 3px 0 0 3px;
+		}
+		
+		nav #login-trigger:hover,
+		nav #login .active,
+		nav #signup a:hover {
+		  background: #fff;
+		}
+		
+		nav #login-content {
+		  display: none;
+		  position: absolute;
+		  top: 65px;
+		  left: 815px;
+		  z-index: 999;    
+		  background: #fff;
+		  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+		  background-image: -webkit-linear-gradient(top, #fff, #eee);
+		  background-image: -moz-linear-gradient(top, #fff, #eee);
+		  background-image: -ms-linear-gradient(top, #fff, #eee);
+		  background-image: -o-linear-gradient(top, #fff, #eee);
+		  background-image: linear-gradient(top, #fff, #eee);  
+		  padding: 15px;
+		  -moz-box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);
+		  -webkit-box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);
+		  box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);
+		  -moz-border-radius: 3px 0 3px 3px;
+		  -webkit-border-radius: 3px 0 3px 3px;
+		  border-radius: 3px 0 3px 3px;
+		}
+		
+		nav li #login-content {
+		  right: 0;
+		  width: 310px;  
+		}
+		  
+		  
+		
+		/*-----------Menu Bar Nav-----------*/
+		#menu_bar nav {
+			margin: 0 auto; 
+			text-align: center;
+		}
+
+		#menu_bar nav ul ul {
+			display: none;
+		}
+
+		#menu_bar nav ul li:hover > ul {
+			display: block;
+		}
+
+
+		#menu_bar nav ul  {
+			background: #efefef; 
+			background: linear-gradient(top, #efefef 0%, #bbbbbb 100%);  
+			background: -moz-linear-gradient(top, #efefef 0%, #bbbbbb 100%); 
+			background: -webkit-linear-gradient(top, #efefef 0%,#bbbbbb 100%); 
+			padding: 0 20px;
+			border-radius: 10px;  
+			list-style: none;
+			position: relative;
+			display: inline-table;
+		}
+		
+		#menu_bar nav ul:after {
+			content: ""; clear: both; display: block;
+		}
+
+		#menu_bar nav ul li {
+			float: left;
+		}
+		#menu_bar nav ul li:hover {
+			background: #4b545f;
+			background: linear-gradient(top, #4f5964 0%, #5f6975 40%);
+			background: -moz-linear-gradient(top, #4f5964 0%, #5f6975 40%);
+			background: -webkit-linear-gradient(top, #4f5964 0%,#5f6975 40%);
+		}
+		#menu_bar nav ul li:hover a {
+			color: #000;
+		}
+		
+		#menu_bar nav ul li a {
+			display: block; padding: 10px 20px;
+			color: #000; text-decoration: none;
+		}
+		#menu_bar nav ul ul {
+			background: #5f6975; border-radius: 0px; padding: 0 6.6px;
+			position: absolute; top: 100%;
+		}
+		#menu_bar nav ul ul li {
+			float: none; 
+			border-top: 1px solid #6b727c;
+			border-bottom: 1px solid #575f6a;
+			position: relative;
+		}
+		#menu_bar nav ul ul li a {
+			padding: 10px 22.5px;
+			color: #fff;
+		}	
+		#menu_bar nav ul ul li a:hover {
+			background: #4b545f;
+		}
+
+		
+		
+		/*----------------------*/
+		
+
+		
+		/*--------------------*/
+		
+		#inputs input {
+		  background: #f1f1f1;
+		  padding: 6px 5px;
+		  margin: 0 0 5px 0;
+		  width: 238px;
+		  border: 1px solid #ccc;
+		  -moz-border-radius: 3px;
+		  -webkit-border-radius: 3px;
+		  border-radius: 3px;
+		  -moz-box-shadow: 0 1px 1px #ccc inset;
+		  -webkit-box-shadow: 0 1px 1px #ccc inset;
+		  box-shadow: 0 1px 1px #ccc inset;
+		}
+		
+		#inputs input:focus {
+		  background-color: #fff;
+		  border-color: #e8c291;
+		  outline: none;
+		  -moz-box-shadow: 0 0 0 1px #e8c291 inset;
+		  -webkit-box-shadow: 0 0 0 1px #e8c291 inset;
+		  box-shadow: 0 0 0 1px #e8c291 inset;
+		}
+		
+		/*--------------------*/
+		
+		#login #actions {
+		  margin: 10px 0 0 0;
+		}
+		#login #password1{		
+		  background-color: #d14545;
+		  background-image: -webkit-gradient(linear, left top, left bottom, from(#e97171), to(#d14545));
+		  background-image: -webkit-linear-gradient(top, #e97171, #d14545);
+		  background-image: -moz-linear-gradient(top, #e97171, #d14545);
+		  background-image: -ms-linear-gradient(top, #e97171, #d14545);
+		  background-image: -o-linear-gradient(top, #e97171, #d14545);
+		  background-image: linear-gradient(top, #e97171, #d14545);
+		  -moz-border-radius: 3px;
+		  -webkit-border-radius: 3px;
+		  border-radius: 3px;
+		  text-shadow: 0 1px 0 rgba(0,0,0,.5);
+		  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+		  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+		  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;    
+		  border: 1px solid #7e1515;
+		  float: left;
+		  height: 30px;
+		  padding: 0;
+		  width: 140px;
+		  cursor: pointer;
+		  font: bold 14px Arial, Helvetica;
+		  color: #fff;
+		}
+		
+		#login #password1:hover,
+		#login #password1:focus {		
+		  background-color: #e97171;
+		  background-image: -webkit-gradient(linear, left top, left bottom, from(#d14545), to(#e97171));
+		  background-image: -webkit-linear-gradient(top, #d14545, #e97171);
+		  background-image: -moz-linear-gradient(top, #d14545, #e97171);
+		  background-image: -ms-linear-gradient(top, #d14545, #e97171);
+		  background-image: -o-linear-gradient(top, #d14545, #e97171);
+		  background-image: linear-gradient(top, #d14545, #e97171);
+		}	
+		
+		#login #password1:active {		
+		  outline: none;
+		  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+		  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+		  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+		}
+		
+		#login #password1::-moz-focus-inner {
+		  border: none;
+		}
+		
+		#login #submit {		
+		  background-color: #d14545;
+		  background-image: -webkit-gradient(linear, left top, left bottom, from(#e97171), to(#d14545));
+		  background-image: -webkit-linear-gradient(top, #e97171, #d14545);
+		  background-image: -moz-linear-gradient(top, #e97171, #d14545);
+		  background-image: -ms-linear-gradient(top, #e97171, #d14545);
+		  background-image: -o-linear-gradient(top, #e97171, #d14545);
+		  background-image: linear-gradient(top, #e97171, #d14545);
+		  -moz-border-radius: 3px;
+		  -webkit-border-radius: 3px;
+		  border-radius: 3px;
+		  text-shadow: 0 1px 0 rgba(0,0,0,.5);
+		  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+		  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+		  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;    
+		  border: 1px solid #7e1515;
+		  float: left;
+		  height: 30px;
+		  padding: 0;
+		  width: 100px;
+		  cursor: pointer;
+		  font: bold 14px Arial, Helvetica;
+		  color: #fff;
+		}
+		
+		#login #submit:hover,
+		#login #submit:focus {		
+		  background-color: #e97171;
+		  background-image: -webkit-gradient(linear, left top, left bottom, from(#d14545), to(#e97171));
+		  background-image: -webkit-linear-gradient(top, #d14545, #e97171);
+		  background-image: -moz-linear-gradient(top, #d14545, #e97171);
+		  background-image: -ms-linear-gradient(top, #d14545, #e97171);
+		  background-image: -o-linear-gradient(top, #d14545, #e97171);
+		  background-image: linear-gradient(top, #d14545, #e97171);
+		}	
+		
+		#login #submit:active {		
+		  outline: none;
+		  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+		  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+		  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+		}
+		
+		#login #submit::-moz-focus-inner {
+		  border: none;
+		}
+		
+		#login label {
+		  float: right;
+		  line-height: 30px;
+		}
+		
+		#login label input {
+		  position: relative;
+		  top: 2px;
+		  right: 2px;
+		}
+		  
+
+		  /*----------------------*/

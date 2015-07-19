@@ -97,14 +97,9 @@
 						header('location:/sen/Modules/admin/chage_laptop.php');
 			
 				}
-				if(isset($_POST['SUBMIT21']))
+				if(isset($_POST['SUBMIT20']))
 				{
-						header('location:/sen/Modules/admin/delete_batch.php');
-			
-				}
-				if(isset($_POST['SUBMIT23']))
-				{
-						header('location:/sen/Modules/admin/view_doctor_entries.php');
+						header('location:/sen/Modules/admin/hmc_view_for_admin.php');
 			
 				}
 				if(isset($_POST['SUBMIT9']))
@@ -169,9 +164,7 @@
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT19" VALUE="Change Laptop">
 				<br>
-				<INPUT TYPE="SUBMIT" NAME="SUBMIT21" VALUE="Delete batch">
-				<br>
-				<INPUT TYPE="SUBMIT" NAME="SUBMIT23" VALUE="View Doctor Entries">
+				<INPUT TYPE="SUBMIT" NAME="SUBMIT20" VALUE="View HMC">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT9" VALUE="Sign out">
 				<br>

@@ -1,8 +1,7 @@
-
 <?php
 
 // complaint for residents 
-/*
+
 session_start();
 if(!isset($_SESSION['access']) or $_SESSION['access']!= 1)
 {   
@@ -10,15 +9,14 @@ if(!isset($_SESSION['access']) or $_SESSION['access']!= 1)
 	session_destroy();
 	header('location:/sen/Modules/login.php');
 }
-*/
+
 require_once ('db.php');
 $db=Connect_To_Server();
 $db_found=Connect_To_DB();
 /// this page is for Deleting GENERAL complaints at user side.......................................................
  //by nikunj amipara,
- // $ty = "Electrical";
-$userid = '201001199'	
-//$userid = $_SESSION['login_id'];
+//$userid = '201001199'	
+$userid = $_SESSION['login_id'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

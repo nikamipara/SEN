@@ -25,7 +25,7 @@ $db_found=Connect_To_DB();
 //3/ perform database query
 
 
-$result = mysql_query("SELECT * FROM lost_found order by date  DESC,time desc limit 0,10 ",$db);
+$result = mysql_query("SELECT * FROM lost_found order by date  DESC,time desc limit 0,30 ",$db);
 if(!$result){
 		die("database selection failed:".mysql_error());
 	}

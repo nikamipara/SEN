@@ -1,7 +1,7 @@
 <?php
 //for admin refers smrec1.php  and get inputs form smrecform
 require_once ('db.php');
-/*
+
 session_start();
 if(!isset($_SESSION['access']) or $_SESSION['access']!= 4)
 {   
@@ -9,7 +9,7 @@ if(!isset($_SESSION['access']) or $_SESSION['access']!= 4)
 	session_destroy();
 	header('location:/sen/Modules/login.php');
 }
-*/
+
 $db=Connect_To_Server();
 $db_found=Connect_To_DB();
 

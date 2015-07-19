@@ -3,13 +3,13 @@
 <?php
 
 //include ('sen/databasefun.php');
-/*session_start();
+session_start();
 if(!isset($_SESSION['access']) or $_SESSION['access']!= 4)
 {   
 	$_SESSION['access']=0;
 	session_destroy();
 	header('location:/sen/Modules/login.php');
-}*/
+}
 
 require("phpmailer/class.phpmailer.php");
 require("phpmailer/class.smtp.php");

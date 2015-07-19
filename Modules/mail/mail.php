@@ -1,5 +1,3 @@
-
-
 <html>
 <head>
 <title>mail</title>
@@ -7,13 +5,15 @@
 <body>
 <center> <h1>Mail</h1> </center>
  <?php 
+		session_start();
 	 if(isset($_SESSION['access'])&& $_SESSION['access']==4)
 	 {
-			 
 	 }
 	 else
-	 {
-		 die("not admin");
+	 {	
+		$_SESSION['access']=0;
+		session_destroy();
+		 header('location:/sen/Modules/Login/login.php');
 	 }
 	 
 	 ?>

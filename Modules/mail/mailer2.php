@@ -1,5 +1,5 @@
  <?php
-
+include("Mail_main.php");
 require("phpmailer/class.phpmailer.php");
 require("phpmailer/class.smtp.php");
 function createmail($query,$start)
@@ -45,16 +45,14 @@ $mail->SMTPKeepAlive = true;                  // SMTP connection will not close 
 				if($result)
 				{	
 				$count=0;
-			echo "<table border='1'>";
+			
 			while($post = mysql_fetch_array($result))
 			{	if($limit==0)
 				{
-				 echo "<tr class='row1'>";
-				echo "<td class='1'>".$post['id']."</td>";
-				echo "<td class='2'>".$post['email']."</td>";
+				 
 				$mail->AddAddress($post['email'],$post['id']);
 				
-				echo "</tr>";
+				
 				$count=$count+1;
 				if($count%500==0)
 				{createmail($query,$count);
@@ -67,7 +65,7 @@ $mail->SMTPKeepAlive = true;                  // SMTP connection will not close 
 					$count=$count+1;
 				}
 			}
-			echo "</table>";
+			
 			if($count==0)echo "data not found";
 		}
 		else
@@ -98,7 +96,6 @@ $mail->SMTPKeepAlive = true;                  // SMTP connection will not close 
 		 die("come through proper channels");
 	 }
 	
-	/////
 	
 		require_once("config.php");
 		
@@ -147,12 +144,12 @@ $mail->SMTPKeepAlive = true;                  // SMTP connection will not close 
 				else if($value==1){$query=$query." and ";}
 				$query=$query." program ='".$prog."'";
 			}
-			echo $query.";";
+			
 			createmail($query,0);
 			
 //////		
 		
-			include("mail.php");
+			
 		mysql_close();
 	 
 	?>

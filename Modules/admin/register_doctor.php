@@ -9,10 +9,10 @@
 			{
 						header('location:/sen/Modules/Links_temp/admin_links.php');
 			}
-
+				
 			if(isset($_POST['SUBMIT1']))
 			{
-
+			
 				$doctor_id=$_POST['doctor_id'];
 				$login_id=$_POST['login_id'];
 				$password=$_POST['password'];
@@ -27,10 +27,10 @@
 		{
 			$_SESSION['access']=0;
 			session_destroy();
-			header('location:/sen/Modules/login/login.php');
+			header('location:/sen/Modules/login.php');
 			echo "invalid Login";
 		}
-
+		
 ?>
 </HEAD>
 
@@ -90,20 +90,20 @@
 				}
 				else
 				{
-					$SQL_Query="INSERT INTO doctor VALUES ('$doctor_id','$name','n','$login_id')";
+					$SQL_Query="INSERT INTO doctor VALUES ('$doctor_id','name','n','$login_id')";
 					$result=mysql_query($SQL_Query);
 					if($result==false)
 					{
 							echo mysql_error();
 							$SQL_Query="delete from login where login_id='$login_id'";
 							$result=mysql_query($SQL_Query);
-
+						
 					}
 					else
 					{
-							echo "Registered Doctor Successfully";
+							echo "Register Successfully";
 					}
 				}
-
+			
 		}
 ?>

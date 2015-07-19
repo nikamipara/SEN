@@ -2,7 +2,7 @@
 <?php
 
 // lf hmc convever..
-/*
+
 session_start();
 if(!isset($_SESSION['access']) or $_SESSION['access']!= 3)
 {   
@@ -10,7 +10,6 @@ if(!isset($_SESSION['access']) or $_SESSION['access']!= 3)
 	session_destroy();
 	header('location:/sen/Modules/Login/login.php');
 }
-*/
 require_once ('db.php');
 $db=Connect_To_Server();
 $db_found=Connect_To_DB();

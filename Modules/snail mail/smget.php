@@ -2,22 +2,17 @@
 <?php
 //this is for user ......
 require_once ('db.php');
-/*session_start();
+session_start();
 if(!isset($_SESSION['access']) or $_SESSION['access']!= 1)
 {   
 	$_SESSION['access']=0;
 	session_destroy();
 	header('location:/sen/Modules/login.php');
-}*/
+}
 
 //include ('sen/databasefun.php');
 $db=Connect_To_Server();
 $db_found=Connect_To_DB();
-?>
-<?php
-/// this page is for getting  snail mail at user side.......................................................
- //by nikunj amipara,
-	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

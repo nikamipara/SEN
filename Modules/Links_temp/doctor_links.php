@@ -16,12 +16,6 @@
 						header('location:/sen/Modules/doctor/student_entries.php');
 			
 				}
-				if(isset($_POST['SUBMIT3']))
-				{
-						
-						header('location:/sen/Modules/doctor/add_suggestion.php');
-			
-				}
 				if(isset($_POST['SUBMIT9']))
 				{
 						
@@ -34,7 +28,7 @@
 		}
 		else
 		{
-			header('location:/sen/Modules/login.php');
+			header('location:/sen/Modules/Login/login.php');
 			echo "Please login properly";
 			
 		}
@@ -51,8 +45,6 @@
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="Change Password">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Student Entries">
-				<br>
-				<INPUT TYPE="SUBMIT" NAME="SUBMIT3" VALUE="Add Suggestion">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT9" VALUE="Sign out">
 				<br>

@@ -63,6 +63,42 @@
 				laptop_out($rid);
 				Close_To_Server($db_handle);
 			}
+			if(isset($_POST['SUBMIT10']))
+			{
+				$resident_id=$_POST['resident_id'];
+				$db_handle=Connect_To_Server();
+				$db_found=Connect_To_DB();
+				$rid=$_POST['dhobi_id'];
+				dhobi_status_in($rid);
+				Close_To_Server($db_handle);
+			}
+			if(isset($_POST['SUBMIT11']))
+			{
+				$resident_id=$_POST['resident_id'];
+				$db_handle=Connect_To_Server();
+				$db_found=Connect_To_DB();
+				$rid=$_POST['dhobi_id'];
+				dhobi_status_out($rid);
+				Close_To_Server($db_handle);
+			}
+			if(isset($_POST['SUBMIT12']))
+			{
+				$resident_id=$_POST['resident_id'];
+				$db_handle=Connect_To_Server();
+				$db_found=Connect_To_DB();
+				$rid=$_POST['doctor_id'];
+				doctor_status_in($rid);
+				Close_To_Server($db_handle);
+			}
+			if(isset($_POST['SUBMIT13']))
+			{
+				$resident_id=$_POST['resident_id'];
+				$db_handle=Connect_To_Server();
+				$db_found=Connect_To_DB();
+				$rid=$_POST['doctor_id'];
+				doctor_status_out($rid);
+				Close_To_Server($db_handle);
+			}
 		}
 		else 
 		{
@@ -80,21 +116,17 @@
 
 <BODY>
 	<FORM NAME="form2" METHOD="POST" ACTION="gate.php" >
-	
-		Resident ID   : <INPUT TYPE="TEXT" NAME="resident_id"> 
-		<br>
-		Purpose (Only applicable if taking leave): <INPUT TYPE="TEXT" NAME="purpose" value="home"> 
-		<br>
-		<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="Go Out After 7 P.M.">
-		<br>
-		<INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Come in After 7 P.M.">
-		<br>
-		<INPUT TYPE="SUBMIT" NAME="SUBMIT3" VALUE="Taking a leave">
-		<br>
-		<INPUT TYPE="SUBMIT" NAME="SUBMIT4" VALUE="Coming Back from leave">
-		<br>
-		<INPUT TYPE="SUBMIT" NAME="SUBMIT5" VALUE="Taking Laptop Out">
-		<br>
+	<table>
+		<tr><td>Resident ID   : <INPUT TYPE="TEXT" NAME="resident_id"></td></tr>
+
+		<tr><td>Purpose (Only applicable if taking leave): <INPUT TYPE="TEXT" NAME="purpose" value="home"> </td></tr>
+		
+		<tr rowspan="2"><td><INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="Go Out After 7 P.M."></td>
+		
+		<td><INPUT TYPE="SUBMIT" NAME="SUBMIT3" VALUE="Taking a leave"></td>
+		
+		<td><INPUT TYPE="SUBMIT" NAME="SUBMIT5" VALUE="Taking Laptop Out"></td></tr>
+		
 			<?php
 		
 							
@@ -110,7 +142,12 @@
 		
 		
 			?>
-		<INPUT TYPE="SUBMIT" NAME="SUBMIT6" VALUE="Bringing Laptop In">
+		
+		<tr rowspan="2"><td><INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Come in After 7 P.M."></td>
+		
+		<td><INPUT TYPE="SUBMIT" NAME="SUBMIT4" VALUE="Coming Back from leave"></td>
+		
+		<td><INPUT TYPE="SUBMIT" NAME="SUBMIT6" VALUE="Bringing Laptop In"></td></tr>
 		
 			<?php
 		
@@ -126,9 +163,9 @@
 					}
 			?>
 		<?php view_form(); ?>
-		<br>
-		<INPUT TYPE="SUBMIT" NAME="SUBMIT7" VALUE="Go Back">
 		
+		<tr><td><INPUT TYPE="SUBMIT" NAME="SUBMIT7" VALUE="Go Back"></td></tr>
+		<?php view_form_doctor(); ?>
 	</FORM>	
 	
 </BODY>
@@ -387,6 +424,65 @@
 					echo "<input type='SUBMIT' NAME='SUBMIT10' VALUE='Dhobi Enter' >";
 					echo "<br>";
 					echo "<input type='SUBMIT' NAME='SUBMIT11' VALUE='Dhobi Exit' >";
+					
+				}
+		}
+		
+		function doctor_status_in($doctor_id)
+		{
+				
+				$SQL_Query="update doctor set present='y' where doctor_id='$doctor_id' ";
+				$result=mysql_query($SQL_Query);
+				if($result==false)
+				{
+						echo mysql_error();
+				}
+				else
+				{
+					echo "Successful";
+				}
+		}
+		function doctor_status_out($doctor_id)
+		{
+				
+				$SQL_Query="update doctor set present='n' where doctor_id='$doctor_id' ";
+				$result=mysql_query($SQL_Query);
+				if($result==false)
+				{
+						echo mysql_error();
+				}
+				else
+				{
+					echo "Successful";
+				}
+		}
+		function view_form_doctor()
+		{
+				$db_handle=Connect_To_Server();
+				$db_found=Connect_To_DB();
+				$SQL_Query="select doctor_id,name from doctor";
+				$result=mysql_query($SQL_Query);
+				if($result==false)
+				{
+						echo mysql_error();
+				}
+				else
+				{
+				//	echo "<FORM NAME='form3' METHOD='POST' ACTION='gate.php' >";
+					echo  "	Name: <select name='doctor_id'>";
+				
+					while($out=mysql_fetch_assoc($result))
+					{
+						$name=$out['name'];
+						$doctor_id=$out['doctor_id'];
+						echo  "<option value=$doctor_id>  $name </option>";
+					}
+	
+					echo "</select>";
+					echo "<br>";
+					echo "<input type='SUBMIT' NAME='SUBMIT12' VALUE='Doctor Enter' >";
+					echo "<br>";
+					echo "<input type='SUBMIT' NAME='SUBMIT13' VALUE='Doctor Exit' >";
 					
 				}
 		}

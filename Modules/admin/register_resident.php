@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<TITLE>View Laptop Registration</TITLE>
+<TITLE>Registration- Reisdents</TITLE>
 <?PHP
 		session_start();
 		if(isset($_SESSION['access'])&&($_SESSION['access']=='4'))
@@ -12,12 +12,12 @@
 				
 			if(isset($_POST['SUBMIT1']))
 			{
+			
 				$id=$_POST['id'];
 				$name=$_POST['name'];
 				$wing=$_POST['wing'];
+				$floor=$_POST['floor'];
 				$room=$_POST['room'];
-				$floor=substr($room,0,1);
-				$floor=$floor-1;
 				$contact=$_POST['contact'];
 				$gender=$_POST['genders'];
 				$batch=$_POST['batch'];
@@ -33,7 +33,7 @@
 		{
 			$_SESSION['access']=0;
 			session_destroy();
-			header('location:/sen/Modules/login/login.php');
+			header('location:/sen/Modules/login.php');
 			echo "invalid Login";
 		}
 		
@@ -60,9 +60,11 @@
 			<option value="k">K</option>
 			</select>
 		<br>
+		Floor : <INPUT TYPE="TEXT"  NAME="floor">
+		<br>
 		Room Number: <INPUT TYPE="NUMBER"  NAME="room">
 		<br>
-		Contact Details : <INPUT TYPE="TEXT"  NAME="contact">
+		Contact Details : <INPUT TYPE="NUMBER"  NAME="contact">
 		<br>
 		Gender:  
 		<input type="radio" NAME="genders" value="m">Male           
@@ -111,12 +113,7 @@
 		}
 		function register($id,$name,$wing,$floor,$room,$contact,$gender,$batch,$gcontact,$program)
 		{
-			$SQL_Query=" select count(*) as count from residents where room = '$room' and wing = '$wing' ";
-			$result3=mysql_query($SQL_Query);
-			
-			$rowt = mysql_fetch_assoc($result3);
-						
-			if(($gender=="f")&&($wing!="j"&&$wing!="k"))
+			if(($gender=="f")&&($wing!="j"&&wing!="k"))
 			{
 				echo "Invalid Wing ";
 			}
@@ -127,18 +124,6 @@
 			else if($gender!=="m"&&$gender!="f")
 			{
 				echo "invalid Gender";
-			}
-			else if($rowt['count']>1)
-			{
-				echo "There cant be more than 2 residents residing in one room";
-			}
-			else if($floor>2||$floor<0)
-			{
-					echo "Floor or room value invalid";
-			}
-			else if(substr($room,1,2)>20||substr($room,1,2)<0)
-			{
-				echo "Invalid Room";
 			}
 			else
 			{
@@ -158,8 +143,10 @@
 					$result=mysql_query($SQL_Query);
 					if($result==false)
 					{
+							echo mysql_error();
 							$SQL_Query="delete from login where login_id='$id'";
 							$result=mysql_query($SQL_Query);
+						
 							echo mysql_error();
 					}
 					else

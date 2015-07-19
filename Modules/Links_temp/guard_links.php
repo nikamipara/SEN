@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Guard Links- Home Page</title>
+<title>Doctor- Home Page</title>
 <?PHP 	
 		session_start();
 		if(isset($_SESSION['access'])&&($_SESSION['access']=='5'))
@@ -9,12 +9,6 @@
 				{
 						
 						header('location:/sen/Modules/guard/gate.php');
-			
-				}
-				if(isset($_POST['SUBMIT2']))
-				{
-						
-						header('location:/sen/Modules/guard/change_password.php');
 			
 				}
 				if(isset($_POST['SUBMIT9']))
@@ -29,7 +23,7 @@
 		}
 		else
 		{
-			header('location:/sen/Modules/login/login.php');
+			header('location:/sen/Modules/Login/login.php');
 			echo "Please login properly";
 			
 		}
@@ -44,8 +38,6 @@
 			<FORM NAME="form1" METHOD="POST" ACTION="guard_links.php" >
 			
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT1" VALUE="Gate">
-				<br>
-				<INPUT TYPE="SUBMIT" NAME="SUBMIT2" VALUE="Change Password">
 				<br>
 				<INPUT TYPE="SUBMIT" NAME="SUBMIT9" VALUE="Sign out">
 				<br>

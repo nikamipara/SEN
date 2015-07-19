@@ -95,10 +95,16 @@
 							$exit=$out['exit_time_date'];
 							$entry=$out['entry_time_date'];
 							$id=$out['resident_id'];
-							$entry_datetime=explode(' ',$entry);
-							$exit_datetime=explode(' ',$exit);
-							echo "<tr><td>$id</td><td>$name</td><td>$entry_datetime[0]</td><td>$entry_datetime[1]</td><td>$exit_datetime[0]</td><td>$exit_datetime[1]</td>";
-						
+							$entry_date=explode(' ', $entry);
+							$exit_date=explode(' ', $exit);
+							if($exit==NULL)
+							{
+									echo "<tr><td>$id</td><td>$name</td><td>$entry_date[0]</td><td>$entry_date[1]</td><td>'inside'</td><td>'inside'</td>";
+							}
+							else
+							{
+								echo "<tr><td>$id</td><td>$name</td><td>$entry_date[0]</td><td>$entry_date[1]</td><td>$exit_date[0]</td><td>$exit_date[1]</td>";
+							}
 						}
 						echo"</table>";
 				}
@@ -122,10 +128,16 @@
 							$exit=$out['exit_time_date'];
 							$entry=$out['entry_time_date'];
 							$id=$out['resident_id'];
-							$entry_datetime=explode(' ',$entry);
-							$exit_datetime=explode(' ',$exit);
-							echo "<tr><td>$id</td><td>$name</td><td>$entry_datetime[0]</td><td>$entry_datetime[1]</td><td>$exit_datetime[0]</td><td>$exit_datetime[1]</td>";
-						
+							$entry_date=explode(' ', $entry);
+							$exit_date=explode(' ', $exit);
+							if($exit==NULL)
+							{
+									echo "<tr><td>$id</td><td>$name</td><td>$entry_date[0]</td><td>$entry_date[1]</td><td>'inside'</td><td>'inside'</td>";
+							}
+							else
+							{
+								echo "<tr><td>$id</td><td>$name</td><td>$entry_date[0]</td><td>$entry_date[1]</td><td>$exit_date[0]</td><td>$exit_date[1]</td>";
+							}
 						}
 						echo"</table>";
 				}

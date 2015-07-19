@@ -45,17 +45,15 @@ $mail->SMTPKeepAlive = true;                  // SMTP connection will not close 
 				if($result)
 				{	
 				$count=0;
-			echo "<table border='1'>";
+			
 			while($post = mysql_fetch_array($result))
-			{	 echo "<tr class='row1'>";
-				echo "<td class='1'>".$post['id']."</td>";
-				echo "<td class='2'>".$post['email']."</td>";
+			{	
 				$mail->AddAddress($post['email'],$post['id']);
 				$count=$count+1;
-				echo "</tr>";
+				
 				
 			}
-			echo "</table>";
+			
 			if($count==0)echo "data not found";
 		}
 		else

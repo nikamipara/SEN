@@ -6,7 +6,7 @@ if(!isset($_SESSION['access']) or $_SESSION['access']!= 1)
 {   
 	$_SESSION['access']=0;
 	session_destroy();
-	header('location:/sen/Modules/login.php');
+	header('location:/sen/Modules/Login/login.php');
 }
 
 require_once ('db.php');

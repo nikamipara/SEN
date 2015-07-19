@@ -1,13 +1,13 @@
 <?php
 // form for admin 
-/*session_start();
+session_start();
 if(!isset($_SESSION['access']) or $_SESSION['access']!= 4)
 {   
 	$_SESSION['access']=0;
 	session_destroy();
 	header('location:/sen/Modules/login.php');
 }
-*/
+
 ?>
 <html>
 <head><title>snail mail add</title></head>
